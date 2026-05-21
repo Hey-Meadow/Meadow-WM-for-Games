@@ -1,0 +1,833 @@
+{
+  "claim_label": "causal_tree_teacher_v1",
+  "env_id": "MinAtar/Breakout-raw-v0",
+  "fallback": null,
+  "teacher": "raw MinAtar object causal tree over cloned short action chains",
+  "episodes": 2,
+  "score": 16.0,
+  "survival_steps": 180.0,
+  "mean_planning_ms": 151.6465095968063,
+  "candidate_count": 243,
+  "smoke": {
+    "env_id": "MinAtar/Breakout-raw-v0",
+    "state_shape": [
+      10,
+      10,
+      4
+    ],
+    "minimal_action_set": [
+      "noop",
+      "left",
+      "right"
+    ],
+    "reset_objects": {
+      "paddle_x": 4,
+      "ball": [
+        0,
+        3
+      ],
+      "brick_count": 30
+    },
+    "noop_step": {
+      "reward": 0.0,
+      "terminal": false,
+      "ball": [
+        1,
+        4
+      ]
+    },
+    "render_source": "custom raw-state renderer; no ALE pixel fallback"
+  },
+  "episode_results": [
+    {
+      "seed": 0,
+      "env_id": "MinAtar/Breakout-raw-v0",
+      "score": 16.0,
+      "survival_steps": 180,
+      "terminal": false,
+      "mean_planning_ms": 149.79887243373216,
+      "candidate_count": 243,
+      "candidate_count_mean": 243.0,
+      "initial_objects": {
+        "paddle_x": 4,
+        "ball": [
+          0,
+          3
+        ],
+        "brick_count": 30
+      },
+      "final_objects": {
+        "paddle_x": 4,
+        "ball": [
+          8,
+          5
+        ],
+        "brick_count": 14
+      },
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed0.gif",
+      "plan_records": [
+        {
+          "step": 0,
+          "selected_action": "right",
+          "selected_chain": [
+            "right",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 173.02854196168482
+        },
+        {
+          "step": 1,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 149.67974997125566
+        },
+        {
+          "step": 2,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 149.99679196625948
+        },
+        {
+          "step": 3,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "left",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 148.33362505305558
+        },
+        {
+          "step": 4,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "left",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 148.78791698720306
+        },
+        {
+          "step": 5,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "left",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 152.42029097862542
+        },
+        {
+          "step": 6,
+          "selected_action": "left",
+          "selected_chain": [
+            "left",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 157.74799999780953
+        },
+        {
+          "step": 7,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 155.38016706705093
+        },
+        {
+          "step": 8,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 157.3760419851169
+        },
+        {
+          "step": 9,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 47.29,
+          "reward": 2.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 153.47745805047452
+        },
+        {
+          "step": 10,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 47.29,
+          "reward": 2.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 153.1698750331998
+        },
+        {
+          "step": 11,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 148.79816700704396
+        },
+        {
+          "step": 12,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 147.18762494158
+        },
+        {
+          "step": 13,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "right",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 146.85987494885921
+        },
+        {
+          "step": 14,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "right",
+            "noop"
+          ],
+          "score": 22.499999999999996,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 3,
+          "candidate_count": 243,
+          "planning_ms": 149.78966698981822
+        },
+        {
+          "step": 15,
+          "selected_action": "left",
+          "selected_chain": [
+            "left",
+            "noop",
+            "right",
+            "right",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 149.84770899172872
+        },
+        {
+          "step": 16,
+          "selected_action": "right",
+          "selected_chain": [
+            "right",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.48,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 3.0,
+          "landing_x": 7,
+          "candidate_count": 243,
+          "planning_ms": 163.06637495290488
+        },
+        {
+          "step": 17,
+          "selected_action": "right",
+          "selected_chain": [
+            "right",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.499999999999996,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 3,
+          "candidate_count": 243,
+          "planning_ms": 161.03433293756098
+        },
+        {
+          "step": 18,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.849999999999998,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 3,
+          "candidate_count": 243,
+          "planning_ms": 157.8023750334978
+        },
+        {
+          "step": 19,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.849999999999998,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 3,
+          "candidate_count": 243,
+          "planning_ms": 153.8861250737682
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "env_id": "MinAtar/Breakout-raw-v0",
+      "score": 16.0,
+      "survival_steps": 180,
+      "terminal": false,
+      "mean_planning_ms": 153.4941467598805,
+      "candidate_count": 243,
+      "candidate_count_mean": 243.0,
+      "initial_objects": {
+        "paddle_x": 4,
+        "ball": [
+          9,
+          3
+        ],
+        "brick_count": 30
+      },
+      "final_objects": {
+        "paddle_x": 5,
+        "ball": [
+          1,
+          5
+        ],
+        "brick_count": 14
+      },
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed1.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed1.gif",
+      "plan_records": [
+        {
+          "step": 0,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 274.7381669469178
+        },
+        {
+          "step": 1,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 163.07749995030463
+        },
+        {
+          "step": 2,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 155.66533291712403
+        },
+        {
+          "step": 3,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "right",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 154.29420897271484
+        },
+        {
+          "step": 4,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "right",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 150.31591604929417
+        },
+        {
+          "step": 5,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "right",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 148.45524996053427
+        },
+        {
+          "step": 6,
+          "selected_action": "right",
+          "selected_chain": [
+            "right",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 156.7983329296112
+        },
+        {
+          "step": 7,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 155.3046670742333
+        },
+        {
+          "step": 8,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 153.7722919601947
+        },
+        {
+          "step": 9,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 47.29,
+          "reward": 2.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 151.26491605769843
+        },
+        {
+          "step": 10,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 47.29,
+          "reward": 2.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 151.5550418989733
+        },
+        {
+          "step": 11,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 148.2391250319779
+        },
+        {
+          "step": 12,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 24.29,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 5,
+          "candidate_count": 243,
+          "planning_ms": 146.6142920544371
+        },
+        {
+          "step": 13,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "left",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 147.6456249365583
+        },
+        {
+          "step": 14,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "left",
+            "noop"
+          ],
+          "score": 22.499999999999996,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 6,
+          "candidate_count": 243,
+          "planning_ms": 151.81458299048245
+        },
+        {
+          "step": 15,
+          "selected_action": "right",
+          "selected_chain": [
+            "right",
+            "noop",
+            "left",
+            "left",
+            "noop"
+          ],
+          "score": 24.64,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 0.0,
+          "landing_x": 4,
+          "candidate_count": 243,
+          "planning_ms": 150.78779100440443
+        },
+        {
+          "step": 16,
+          "selected_action": "left",
+          "selected_chain": [
+            "left",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.48,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 3.0,
+          "landing_x": 2,
+          "candidate_count": 243,
+          "planning_ms": 162.93166705872864
+        },
+        {
+          "step": 17,
+          "selected_action": "left",
+          "selected_chain": [
+            "left",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.499999999999996,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 6,
+          "candidate_count": 243,
+          "planning_ms": 160.5877090478316
+        },
+        {
+          "step": 18,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.849999999999998,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 6,
+          "candidate_count": 243,
+          "planning_ms": 183.95145796239376
+        },
+        {
+          "step": 19,
+          "selected_action": "noop",
+          "selected_chain": [
+            "noop",
+            "noop",
+            "noop",
+            "noop",
+            "noop"
+          ],
+          "score": 22.849999999999998,
+          "reward": 1.0,
+          "death_risk": 0.0,
+          "catch_distance": 2.0,
+          "landing_x": 6,
+          "candidate_count": 243,
+          "planning_ms": 161.82425001170486
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed0.gif"
+    },
+    {
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed1.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed1.gif"
+    }
+  ]
+}

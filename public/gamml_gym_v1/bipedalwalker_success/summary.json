@@ -1,0 +1,75 @@
+{
+  "env_id": "BipedalWalker-v3",
+  "claim_label": "causal_tree_teacher_success_gait_state_machine",
+  "started_at": "2026-04-28T17:19:53+0800",
+  "teacher": "Gymnasium BipedalWalkerHeuristics gait state machine",
+  "success_definition": "episode return >= 300.0",
+  "episodes": 4,
+  "success_count": 4,
+  "mean_return": 310.3537454820471,
+  "mean_steps": 1600.0,
+  "mean_max_x": 87.76021194458008,
+  "episode_results": [
+    {
+      "seed": 8,
+      "return": 310.7613935722038,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 87.92372131347656,
+      "phase_counts": {
+        "stay_on_one_leg": 1357,
+        "put_other_down": 216,
+        "push_off": 27
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_success/videos/bipedalwalker_success_seed8.mp4"
+    },
+    {
+      "seed": 10,
+      "return": 307.6138476836495,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 87.12800598144531,
+      "phase_counts": {
+        "stay_on_one_leg": 1360,
+        "put_other_down": 213,
+        "push_off": 27
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_success/videos/bipedalwalker_success_seed10.mp4"
+    },
+    {
+      "seed": 18,
+      "return": 310.33190716523677,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 87.71175384521484,
+      "phase_counts": {
+        "stay_on_one_leg": 1360,
+        "put_other_down": 215,
+        "push_off": 25
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_success/videos/bipedalwalker_success_seed18.mp4"
+    },
+    {
+      "seed": 33,
+      "return": 312.70783350709826,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 88.2773666381836,
+      "phase_counts": {
+        "stay_on_one_leg": 1361,
+        "put_other_down": 217,
+        "push_off": 22
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_success/videos/bipedalwalker_success_seed33.mp4"
+    }
+  ],
+  "note": "Successful state-machine Think teacher baseline. This is not the earlier failed single-frame gait scorer and not a distilled student."
+}

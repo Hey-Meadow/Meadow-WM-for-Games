@@ -1,0 +1,110 @@
+{
+  "suite": "GamML Gym v1 Pendulum torque-control causal-tree Think teacher",
+  "env_id": "Pendulum-v1",
+  "claim_label": "causal_tree_think_teacher_torque_swingup_brake_stabilize",
+  "status": "solved_recorded_seeds_partial_generalization_check",
+  "status_note": "Pendulum is reported with a conservative partial/solved label because the energy controller is a stable swing-up demo, not a full cross-seed robustness claim.",
+  "physics_backend": "Gymnasium env snapshot/restore rollout",
+  "primitives": [
+    "swing_up",
+    "brake",
+    "stabilize_upright"
+  ],
+  "candidate_chains": [
+    [
+      "stabilize_upright"
+    ],
+    [
+      "swing_up",
+      "stabilize_upright"
+    ],
+    [
+      "swing_up",
+      "brake",
+      "stabilize_upright"
+    ],
+    [
+      "swing_up",
+      "swing_up",
+      "stabilize_upright"
+    ],
+    [
+      "brake",
+      "stabilize_upright"
+    ],
+    [
+      "swing_up"
+    ],
+    [
+      "brake"
+    ]
+  ],
+  "episodes": [
+    {
+      "seed": 0,
+      "return": -123.6287504597327,
+      "steps": 200,
+      "solved_return_threshold": -150.0,
+      "success": true,
+      "stable_upright_frames": 171,
+      "stable_upright_fraction": 0.855,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed0.gif",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/pendulum_torque_causal_tree_seed0_plans.json",
+      "primitive_counts": {
+        "swing_up": 23,
+        "brake": 0,
+        "stabilize_upright": 177
+      },
+      "mean_planning_ms": 1.2843131105182692
+    },
+    {
+      "seed": 1,
+      "return": -0.5981305236480663,
+      "steps": 200,
+      "solved_return_threshold": -150.0,
+      "success": true,
+      "stable_upright_frames": 200,
+      "stable_upright_fraction": 1.0,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed1.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed1.gif",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/pendulum_torque_causal_tree_seed1_plans.json",
+      "primitive_counts": {
+        "swing_up": 0,
+        "brake": 0,
+        "stabilize_upright": 200
+      },
+      "mean_planning_ms": 1.352467720862478
+    },
+    {
+      "seed": 2,
+      "return": -116.28380938570685,
+      "steps": 200,
+      "solved_return_threshold": -150.0,
+      "success": true,
+      "stable_upright_frames": 176,
+      "stable_upright_fraction": 0.88,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed2.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed2.gif",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/pendulum_torque_causal_tree/pendulum_torque_causal_tree_seed2_plans.json",
+      "primitive_counts": {
+        "swing_up": 19,
+        "brake": 1,
+        "stabilize_upright": 180
+      },
+      "mean_planning_ms": 1.368615843821317
+    }
+  ],
+  "success_count": 3,
+  "solved_return_threshold": -150.0,
+  "mean_return": -80.17023012302921,
+  "mean_steps": 200.0,
+  "mean_stable_upright_fraction": 0.9116666666666666,
+  "mean_planning_ms": 1.3351322250673547,
+  "horizon": {
+    "primitive_steps": 8,
+    "max_episode_steps": 200,
+    "candidate_count": 7
+  },
+  "overlay": "candidate torque futures, selected chain, angle, angular velocity, and energy are rendered into each frame"
+}

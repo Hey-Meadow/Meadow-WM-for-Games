@@ -1,0 +1,32 @@
+{
+  "suite": "GamML Gym v1 classic causal tree",
+  "task": "mountaincar",
+  "env_id": "MountainCar-v0",
+  "claim_label": "causal_tree_teacher_v1",
+  "physics_backend": "Gymnasium env snapshot rollout",
+  "candidate_count": 19,
+  "horizon": 28,
+  "episodes": [
+    {
+      "seed": 31,
+      "return": -200.0,
+      "steps": 200,
+      "terminated": false,
+      "truncated": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/classic_causal_tree/mountaincar/mountaincar_causal_tree_seed31.mp4",
+      "mean_planning_ms": 2.2582993865944445
+    },
+    {
+      "seed": 37,
+      "return": -200.0,
+      "steps": 200,
+      "terminated": false,
+      "truncated": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/classic_causal_tree/mountaincar/mountaincar_causal_tree_seed37.mp4",
+      "mean_planning_ms": 2.2173400031169876
+    }
+  ],
+  "mean_return": -200.0,
+  "mean_steps": 200.0,
+  "mean_planning_ms": 2.237819694855716
+}

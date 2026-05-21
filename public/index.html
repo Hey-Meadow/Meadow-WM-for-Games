@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meadow WM (GamML) · OpenAI Gym Causal Tree</title>
+<style>
+  :root {
+    --ink: #17211d;
+    --muted: #5f6f68;
+    --line: #d7e1da;
+    --paper: #f7faf7;
+    --band: #eef5ef;
+    --green: #1c7c54;
+    --blue: #1f5f8b;
+    --orange: #9a5b14;
+    --red: #9b2f30;
+    --white: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", sans-serif;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 14px 24px;
+    background: rgba(247, 250, 247, 0.92);
+    border-bottom: 1px solid rgba(23, 33, 29, 0.12);
+    backdrop-filter: blur(12px);
+  }
+  .brand {
+    font-size: 14px;
+    font-weight: 750;
+    letter-spacing: 0.02em;
+  }
+  .nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .nav a { text-decoration: none; }
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: grid;
+    align-items: end;
+    overflow: hidden;
+    background: #101510;
+  }
+  .hero video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(0.95);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8, 13, 10, 0.18), rgba(8, 13, 10, 0.68));
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 0 0 76px;
+    color: white;
+  }
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 750;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 12px;
+  }
+  h1 {
+    margin: 0;
+    max-width: 820px;
+    font-size: clamp(42px, 7vw, 92px);
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+  .lede {
+    max-width: 780px;
+    margin: 22px 0 0;
+    font-size: clamp(17px, 2vw, 22px);
+    color: rgba(255,255,255,0.88);
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    width: min(1180px, calc(100% - 40px));
+    margin: -42px auto 0;
+    position: relative;
+    z-index: 2;
+  }
+  .stat {
+    background: var(--white);
+    border: 1px solid rgba(23,33,29,0.12);
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 18px 44px rgba(37, 56, 45, 0.12);
+  }
+  .stat strong {
+    display: block;
+    font-size: 24px;
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .stat span {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  section {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 76px 0;
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 28px;
+  }
+  h2 {
+    margin: 0;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+  .section-head p, .body-copy {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .band {
+    width: 100%;
+    max-width: none;
+    background: var(--band);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .band > .inner {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 76px 0;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .game-card, .panel, .video-card {
+    background: var(--white);
+    border: 1px solid rgba(23,33,29,0.12);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .game-card { padding: 18px; }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 24px;
+    padding: 2px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 650;
+    margin-bottom: 12px;
+  }
+  .game-card h3, .panel h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .game-card p, .panel p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .metric-list {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .metric-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid rgba(23,33,29,0.08);
+    padding-top: 8px;
+  }
+  .metric-list b { font-variant-numeric: tabular-nums; }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .video-card video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    background: #0f1412;
+  }
+  .video-body {
+    padding: 14px;
+  }
+  .video-body h3 {
+    margin: 0 0 6px;
+    font-size: 16px;
+  }
+  .video-body p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(23,33,29,0.12);
+    border-radius: 8px;
+    background: var(--white);
+  }
+  table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 13px 14px;
+    border-bottom: 1px solid rgba(23,33,29,0.1);
+    text-align: left;
+    vertical-align: top;
+  }
+  th {
+    background: #edf3ee;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #42544b;
+  }
+  tr:last-child td { border-bottom: 0; }
+  .status-ok { color: var(--green); font-weight: 750; }
+  .status-gap { color: var(--orange); font-weight: 750; }
+  .status-watch { color: var(--blue); font-weight: 750; }
+  .flow {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 26px;
+  }
+  .step {
+    background: var(--white);
+    border: 1px solid rgba(23,33,29,0.12);
+    border-radius: 8px;
+    padding: 16px;
+    min-height: 150px;
+  }
+  .step b {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+  .step p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .note {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer {
+    width: min(1180px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 34px 0 52px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+  }
+  @media (max-width: 900px) {
+    .topbar { align-items: flex-start; flex-direction: column; }
+    .hero-stats, .grid-4, .video-grid, .flow, .section-head {
+      grid-template-columns: 1fr;
+    }
+    .hero { min-height: 78vh; }
+    section, .band > .inner { padding: 52px 0; }
+  }
+</style>
+</head>
+<body>
+  <nav class="topbar">
+    <div class="brand">Meadow WM (GamML)</div>
+    <div class="nav">
+      <a href="#why">定位</a>
+      <a href="#games">代表遊戲</a>
+      <a href="#videos">影片</a>
+      <a href="#results">數據</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <video autoplay muted loop playsinline src="scene_soft_tall_gym.mp4"></video>
+    <div class="hero-copy">
+      <div class="eyebrow">OpenAI Gym branch · causal-tree to distilled reaction</div>
+      <h1>Meadow WM for Games</h1>
+      <p class="lede">GamML 是 Meadow 的 Gym 遊戲實驗線。任務不是機器人或工業設備，而是把同一個「Think 因果樹 → 評估分支 → 蒸餾 Reaction」架構，套到 OpenAI Gym 的代表性控制遊戲上。</p>
+    </div>
+  </header>
+
+  <div class="hero-stats">
+    <div class="stat"><strong>11</strong><span>已重跑/接入 causal-tree teacher 的 Gym / game-like 任務</span></div>
+    <div class="stat"><strong>同架構</strong><span>DeviceSpec / GoalSpec / Think / Reaction</span></div>
+    <div class="stat"><strong>新增 5</strong><span>LunarLander / Pendulum / Acrobot / MiniGrid / Pong smoke</span></div>
+    <div class="stat"><strong>可追溯</strong><span>所有數字指向本機 JSON / MP4 artifact</span></div>
+  </div>
+
+  <section id="why">
+    <div class="section-head">
+      <h2>同一個 Meadow 架構，不同的任務入口。</h2>
+      <p>Meadow WM 主線處理機器人、工業設備與 OGBench 物理任務；GamML 這條線則用 OpenAI Gym 的遊戲做控制學實驗。差異不是架構不同，而是 <b>DeviceSpec</b> 從機械手臂/設備參數換成遊戲物理參數，<b>GoalSpec</b> 從抓取/放置/校正換成存活、到達、擺起、降落等成功條件。</p>
+    </div>
+    <div class="flow">
+      <div class="step"><b>1. GameSpec</b><p>選 Gym 環境，讀取狀態維度、action space、重力、摩擦、力矩、終止條件。</p></div>
+      <div class="step"><b>2. GoalSpec</b><p>把遊戲分數改寫成可檢查目標：平衡、到旗幟、擺起、穩定降落。</p></div>
+      <div class="step"><b>3. Think</b><p>展開候選動作鏈，用物理與 reward/cost 評估哪些未來可行。</p></div>
+      <div class="step"><b>4. Distill</b><p>把 Think 選出的鏈、near miss、失敗原因整理成 BC-style Reaction 訓練資料。</p></div>
+      <div class="step"><b>5. Reaction</b><p>部署小模型快速反應；偏離時回到 Think 重新展開與修正。</p></div>
+    </div>
+  </section>
+
+  <div class="band" id="games">
+    <div class="inner">
+      <div class="section-head">
+        <h2>v1 先選這些遊戲，因為它們覆蓋不同因果能力。</h2>
+        <p>這一版不是只展示舊模型，而是把每個任務重新用 Think 因果樹跑過一次。成功與限制都保留：CartPole、MountainCar、LunarLander、Pendulum、Acrobot、MiniGrid DoorKey、FlappyBird、MinAtar Breakout、BipedalWalker、CarRacing 與 Atari Pong smoke 都已有可追溯 artifact；Pong 的完整得分優化放下一輪。</p>
+      </div>
+      <div class="grid-4">
+        <article class="game-card">
+          <span class="tag">Stability</span>
+          <h3>CartPole</h3>
+          <p>平衡控制與短時間反應。適合測 Think 是否能把角度、角速度、推力與失敗邊界放進同一棵因果樹。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">2/2 solved</b></li>
+            <li><span>mean return</span><b>500.0</b></li>
+            <li><span>planning</span><b>0.74 ms</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Delayed reward</span>
+          <h3>MountainCar</h3>
+          <p>不能直接到目標，必須先反向蓄能。代表因果樹需要理解「短期遠離目標，長期更接近成功」。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">5/5 terrain</b></li>
+            <li><span>terrain return</span><b>-110.8</b></li>
+            <li><span>terrain steps</span><b>110.8</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Underactuated</span>
+          <h3>Acrobot</h3>
+          <p>多連桿、欠驅動、需要擺盪累積角動量。新版 energy causal tree 用 pump / coast / brake_hold primitives 解 recorded seeds。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">2/2 solved</b></li>
+            <li><span>mean return</span><b>-131.5</b></li>
+            <li><span>mean steps</span><b>132.5</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Arcade physics</span>
+          <h3>FlappyBird</h3>
+          <p>重力、衝量、障礙預測、低延遲反應。這是目前最直觀的「遊戲感」因果樹成功展示。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">2/2 success</b></li>
+            <li><span>survival</span><b>260 steps</b></li>
+            <li><span>planning</span><b>3.44 ms</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Arcade object physics</span>
+          <h3>MinAtar Breakout</h3>
+          <p>球、板、磚塊、反彈與接球位置。比 ALE pixel 更適合現在的物件因果樹。</p>
+          <ul class="metric-list">
+            <li><span>score</span><b>16.0</b></li>
+            <li><span>survival</span><b>180 steps</b></li>
+            <li><span>candidates</span><b>243</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Robot-like game</span>
+          <h3>BipedalWalker</h3>
+          <p>很像遊戲，也接近機器人。成功版使用 gait-prior causal tree：每步展開步態候選，評估前進、跌倒風險、接觸一致性與能耗。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">4/4 solved</b></li>
+            <li><span>mean return</span><b>310.35</b></li>
+            <li><span>steps</span><b>1600</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Racing</span>
+          <h3>CarRacing</h3>
+          <p>畫面最像遊戲，包含轉向、油門、煞車與路線選擇。成功版使用 racing-line causal tree，比較外內外、late apex、煞車入彎等候選路線。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">1/1 solved</b></li>
+            <li><span>return</span><b>902.4</b></li>
+            <li><span>tiles</span><b>291/291</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Legacy bridge</span>
+          <h3>LunarLander</h3>
+          <p>推力、姿態、腿部接觸、落點穩定。Think teacher 展開 descent、attitude correction、brake、contact stabilize 候選。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">2/2 demos</b></li>
+            <li><span>mean return</span><b>234.0</b></li>
+            <li><span>mean planning</span><b>0.29 ms</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Torque control</span>
+          <h3>Pendulum</h3>
+          <p>連續 torque、swing-up、brake、穩定直立。適合測物理量連續控制與低延遲 Reaction 蒸餾資料。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">3/3 recorded</b></li>
+            <li><span>mean return</span><b>-80.17</b></li>
+            <li><span>forced-down demo</span><b>step 66 upright</b></li>
+            <li><span>planning</span><b>1.34 ms</b></li>
+          </ul>
+        </article>
+        <article class="game-card">
+          <span class="tag">Rule memory</span>
+          <h3>MiniGrid DoorKey</h3>
+          <p>鑰匙、門、解鎖、目標順序。測的是因果樹不只做物理，也能做規則記憶與 symbolic/continuous hybrid plan。</p>
+          <ul class="metric-list">
+            <li><span>目前狀態</span><b class="status-ok">2/2 solved</b></li>
+            <li><span>mean return</span><b>0.9676</b></li>
+            <li><span>mean steps</span><b>9.0</b></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <section id="videos">
+    <div class="section-head">
+      <h2>v1 causal-tree Think 影片。</h2>
+      <p>這裡放的是這次重新用因果樹跑出的repo artifact。CarRacing 最新版已加入第一圈偵察記憶、第二圈衝刺、真實 TRACK_WIDTH 賽道寬度與高速出軌投影；保留對照版用來比較沒有 per-corner 背賽道時為什麼主要仍走 centerline。</p>
+    </div>
+    <div class="video-grid">
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/classic_causal_tree/cartpole/cartpole_causal_tree_seed11.mp4"></video>
+        <div class="video-body"><h3>CartPole · causal tree</h3><p>Gym state snapshot 展開 32 條短未來，seed 11 達 500/500。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_0.mp4"></video>
+        <div class="video-body"><h3>FlappyBird · causal tree</h3><p>LIDAR observation 展開 flap/noop chains，seed 0 存活 260 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/minatar_breakout/videos/minatar_breakout_causal_tree_seed0.mp4"></video>
+        <div class="video-body"><h3>MinAtar Breakout · causal tree</h3><p>抽 ball / paddle / bricks，展開 243 條候選鏈，score 16。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/carracing_per_corner_memory_tree/videos/carracing_racing_line_tree_seed20260429.mp4?v=per-corner-memory-20260428"></video>
+        <div class="video-body"><h3>CarRacing 最新版 · first-lap memory sprint tree</h3><p>第一圈安全偵察寫入彎道記憶，第二圈用外內外 racing line 衝刺；TRACK_WIDTH=6.6667，sprint 圈 955 steps 完賽。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/carracing_speed_memory_centerline_baseline/videos/carracing_speed_memory_centerline_baseline_seed20260429.mp4?v=baseline-20260428"></video>
+        <div class="video-body"><h3>CarRacing 保留對照版 · no per-corner memory</h3><p>固定保留的對照 artifact：有速度風險與 safe-fast 記憶，但還沒把賽道拆成 entry / apex / exit，所以主要仍選 centerline。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed33.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>BipedalWalker · gait causal tree</h3><p>底部 causal future map 顯示步態候選、預測進度、跌倒風險與深紅色已執行進度鏈。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_double_valley.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>MountainCar · terrain causal lines</h3><p>藍線是 top candidate futures，紅線是 selected future，深紅線是 collapse 後的實際結果鏈。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/lunarlander_causal_tree/videos/lunarlander_causal_tree_seed20260429.mp4?v=extra-games-20260429"></video>
+        <div class="video-body"><h3>LunarLander · descent causal tree</h3><p>推力、姿態、落點與 contact stabilize 候選；seed 20260429 return 235.5，安全降落。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/pendulum_torque_causal_tree/videos/pendulum_torque_causal_tree_seed314159.mp4?v=forced-down-20260429"></video>
+        <div class="video-body"><h3>Pendulum · forced-down swing-up tree</h3><p>從 theta=pi 倒掛開始，先 swing_up 注入能量，再 brake，約 step 66 進入直立穩定區，最後停在上方。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/acrobot_energy_causal_tree/videos/acrobot_energy_causal_tree_seed41.mp4?v=extra-games-20260429"></video>
+        <div class="video-body"><h3>Acrobot · energy swing-up tree</h3><p>pump_forward / pump_backward / coast / brake_hold；seed 41 129 steps 解出。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed0.mp4?v=extra-games-20260429"></video>
+        <div class="video-body"><h3>MiniGrid DoorKey · rule memory tree</h3><p>記憶 key / door / goal，選 go_to_key、pickup、unlock、go_to_goal；seed 0 11 steps 完成。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/atari_pong_causal_tree/videos/atari_pong_causal_tree_seed0.mp4?v=pong-readable-20260429"></video>
+        <div class="video-body"><h3>Atari Pong · pixel causal-tree smoke</h3><p>RGB 抽 ball / paddle，用 ALE clone/restore 展開 up/down/noop 候選；新版放大遊戲畫面並把資料移到右側。加入 intercept memory prior 後，300 steps score 0，不宣稱 solved。</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="box2d-success">
+    <div class="section-head">
+      <h2>Box2D causal-tree 成功版 Think teacher。</h2>
+      <p>前一版 CarRacing / BipedalWalker 是失敗診斷。這裡改放成功 causal-tree teacher：CarRacing 展開 racing-line 候選；BipedalWalker 展開 gait 候選並用成功步態 prior 做安全基線。這兩個不是 pixel-only student，而是先把可行老師跑通。</p>
+    </div>
+    <div class="video-grid">
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/carracing_per_corner_memory_tree/videos/carracing_racing_line_tree_seed20260429.mp4?v=per-corner-memory-20260428"></video>
+        <div class="video-body"><h3>CarRacing first-lap memory sprint tree</h3><p>recon 圈 986 steps 完賽並記住 238 個彎道 index；sprint 圈 return 904.5，955 steps，lap_finished=true，291/291 tiles。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/carracing_speed_memory_centerline_baseline/videos/carracing_speed_memory_centerline_baseline_seed20260429.mp4?v=baseline-20260428"></video>
+        <div class="video-body"><h3>CarRacing comparison · speed memory baseline</h3><p>保留作為對照：已有速度風險和 safe-fast 記憶，但還沒有 per-corner 背賽道，因此主要仍選 centerline。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed8.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>BipedalWalker seed 8</h3><p>return 310.8，Gym score solved，完整 1600 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed10.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>BipedalWalker seed 10</h3><p>return 307.6，Gym score solved，完整 1600 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed18.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>BipedalWalker seed 18</h3><p>return 310.3，Gym score solved，完整 1600 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed33.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>BipedalWalker seed 33</h3><p>return 312.7，Gym score solved，完整 1600 steps。</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="mountaincar-generalization">
+    <div class="section-head">
+      <h2>MountainCar 參數變體關卡影片。</h2>
+      <p>你指出得對：只換 seed 不是不同關卡，只是不同初始位置。這裡保留 parameter variants 的原始比較；有完整藍/紅/深紅因果線圖的是下一段 terrain variants。</p>
+    </div>
+    <div class="video-grid">
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_base_seed31.mp4"></video>
+        <div class="video-body"><h3>Base physics</h3><p>default force=0.001, gravity=0.0025, goal=0.50；成功，87 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_far_goal_seed31.mp4"></video>
+        <div class="video-body"><h3>Far goal</h3><p>goal_position=0.55，比原版更遠；成功，89 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_weak_motor_seed31.mp4"></video>
+        <div class="video-body"><h3>Weak motor</h3><p>force=0.00082，模擬推力較弱；成功，160 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_high_gravity_seed31.mp4"></video>
+        <div class="video-body"><h3>High gravity</h3><p>gravity=0.0029，爬坡更難；成功，154 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_weak_motor_high_gravity_seed31.mp4"></video>
+        <div class="video-body"><h3>Weak motor + high gravity</h3><p>force=0.00088, gravity=0.0028；成功，149 steps。</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="mountaincar-terrain">
+    <div class="section-head">
+      <h2>MountainCar 地形變形關卡。</h2>
+      <p>這一組不是 Gymnasium MountainCar-v0，也不是只改 force / gravity。它是 Meadow 自訂物理 backend：每個關卡都有不同 terrain height curve 與 grade dynamics，所以畫面曲線和實際受力都一起改變。</p>
+    </div>
+    <div class="video-grid">
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_classic.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>Classic sine terrain</h3><p>參考正弦坡形；成功，178 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_double_valley.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>Double valley</h3><p>目標前有兩個谷地；成功，81 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_steep_right.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>Steep right climb</h3><p>右側終段爬坡更陡；成功，114 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_wavy_bumps.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>Wavy bumps</h3><p>主坡上疊加小波浪障礙；成功，76 steps。</p></div>
+      </article>
+      <article class="video-card">
+        <video controls muted loop playsinline src="gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_long_slope.mp4?v=causal-lines-20260428"></video>
+        <div class="video-body"><h3>Long slope</h3><p>更長、低頻率的坡形；成功，105 steps。</p></div>
+      </article>
+    </div>
+  </section>
+
+  <div class="band" id="results">
+    <div class="inner">
+      <div class="section-head">
+        <h2>v1 causal-tree artifact 數據。</h2>
+        <p>這張表只採用這次新產生的 causal-tree summary。它不是宣稱 GamML 已解完整 Gym，而是誠實呈現哪些任務已可由 Think 老師完成、哪些仍需要更強 primitive 或更長 horizon。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>任務</th>
+              <th>Env</th>
+              <th>Think Evidence</th>
+              <th>影片</th>
+              <th>目前結論</th>
+              <th>Artifact</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>CartPole</b></td>
+              <td>CartPole-v1</td>
+              <td>2 episodes; mean return 500.0; candidate_count 32; horizon 5; planning 0.739 ms</td>
+              <td>2 MP4</td>
+              <td><span class="status-ok">causal tree solved</span></td>
+              <td><code>gamml_gym_v1/classic_causal_tree/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>FlappyBird</b></td>
+              <td>FlappyBird-v0</td>
+              <td>2 episodes; success 2/2; survival 260 steps; score 6; candidate_count 128; planning 3.44 ms</td>
+              <td>2 MP4 + 2 GIF</td>
+              <td><span class="status-ok">game-like success</span></td>
+              <td><code>gamml_gym_v1/flappybird/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>MinAtar Breakout</b></td>
+              <td>MinAtar/Breakout-raw-v0</td>
+              <td>2 episodes; mean score 16.0; survival 180 steps; candidate_count 243; planning 151.65 ms</td>
+              <td>2 MP4 + 2 GIF</td>
+              <td><span class="status-ok">object causal tree works</span></td>
+              <td><code>gamml_gym_v1/minatar_breakout/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>MountainCar</b></td>
+              <td>MountainCar-v0</td>
+              <td>base seed eval: 8/8 success; parameter variants: 5/5 success; custom terrain variants: 5/5 success; terrain mean return -110.8; terrain mean steps 110.8; terrain candidate_count 340</td>
+              <td>8 seed MP4 + 5 parameter MP4 + 5 terrain MP4</td>
+              <td><span class="status-ok">energy-phase tree handles parameter and terrain variants</span></td>
+              <td><code>gamml_gym_v1/mountaincar_energy/summary.json</code><br><code>gamml_gym_v1/mountaincar_parameter_variants/summary.json</code><br><code>gamml_gym_v1/mountaincar_terrain_variants/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>Acrobot</b></td>
+              <td>Acrobot-v1</td>
+              <td>energy swing-up causal tree: recorded seeds 2/2 solved; mean return -131.5; mean steps 132.5; primitives pump_forward / pump_backward / coast / brake_hold</td>
+              <td>2 MP4 + 2 GIF</td>
+              <td><span class="status-ok">solved on recorded seeds by energy causal tree</span></td>
+              <td><code>gamml_gym_v1/acrobot_energy_causal_tree/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>LunarLander</b></td>
+              <td>LunarLander-v3</td>
+              <td>descent/attitude causal tree: 2 recorded landing demos; return >= 200 in 2/2; mean return 233.97; mean planning 0.29 ms; v2 deprecated, v3 fixed in summary</td>
+              <td>2 MP4 + 2 GIF</td>
+              <td><span class="status-ok">successful landing demos, not 100-episode benchmark</span></td>
+              <td><code>gamml_gym_v1/lunarlander_causal_tree/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>Pendulum</b></td>
+              <td>Pendulum-v1</td>
+              <td>torque causal tree: 3/3 recorded seeds pass -150 threshold; mean return -80.17; forced-down demo starts at theta=pi and reaches upright around step 66; mean planning 1.34 ms; primitives swing_up / brake / stabilize_upright</td>
+              <td>4 MP4 + 4 GIF</td>
+              <td><span class="status-ok">recorded-seed torque control success</span></td>
+              <td><code>gamml_gym_v1/pendulum_torque_causal_tree/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>MiniGrid DoorKey</b></td>
+              <td>MiniGrid-DoorKey-5x5-v0</td>
+              <td>rule/memory causal tree: 2/2 success; mean return 0.9676; mean steps 9.0; key/door/goal memory with go_to_key / pickup / unlock / go_to_goal</td>
+              <td>2 MP4 + 2 GIF</td>
+              <td><span class="status-ok">symbolic rule-memory causal tree works</span></td>
+              <td><code>gamml_gym_v1/minigrid_doorkey_causal_tree/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>Atari Pong</b></td>
+              <td>ALE/Pong-v5</td>
+              <td>pixel object causal-tree smoke: 1 episode; 300 steps; score 0.0 after intercept memory prior; candidate_count 27; mean planning 22.47 ms; extracts ball/player paddle/opponent paddle from RGB and ranks noop/up/down chains</td>
+              <td>1 MP4 + 1 GIF</td>
+              <td><span class="status-watch">honest smoke, not solved</span></td>
+              <td><code>gamml_gym_v1/atari_pong_causal_tree/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>BipedalWalker</b></td>
+              <td>BipedalWalker-v3</td>
+              <td>gait-prior causal tree: 4 episodes; success 4/4; mean return 310.35; mean steps 1600; mean_max_x 87.76; candidates stay_on_one_leg / put_other_down / push_off / recovery</td>
+              <td>4 success MP4</td>
+              <td><span class="status-ok">solved by gait-prior causal tree Think teacher</span></td>
+              <td><code>gamml_gym_v1/bipedalwalker_causal_tree_success/summary.json</code></td>
+            </tr>
+            <tr>
+              <td><b>CarRacing</b></td>
+              <td>CarRacing-v3</td>
+              <td>first-lap memory racing-line causal tree: recon lap 986 steps; sprint lap return 904.5; 955 steps; 291/291 tiles; lap_finished=true; TRACK_WIDTH=6.6667; selected outside-inside-outside 563 times</td>
+              <td>1 success MP4</td>
+              <td><span class="status-ok">solved by racing-line causal tree Think teacher</span></td>
+              <td><code>gamml_gym_v1/carracing_per_corner_memory_tree/summary.json</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">數字來源：repo artifact。MountainCar 的 seed eval 只是初始條件變化；真正關卡泛化分成 parameter variants 和 terrain variants，目前兩者都是 5/5 成功。LunarLander 是 2-run landing demo，不是 100-episode benchmark。Pendulum / Acrobot / MiniGrid 是 recorded-seed teacher results。BipedalWalker 與 CarRacing 都使用環境狀態，不是 pixel-only student。Atari Pong 已接上 pixel object extraction + ALE clone/restore causal tree，但目前只是 smoke，不宣稱 solved。</p>
+    </div>
+  </div>
+
+  <footer>
+    Meadow WM (GamML) · OpenAI Gym causal-tree branch. Current page is a public artifact viewer and research snapshot; it does not claim complete OpenAI Gym benchmark coverage.
+  </footer>
+</body>
+</html>

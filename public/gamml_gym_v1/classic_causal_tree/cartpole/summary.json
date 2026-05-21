@@ -1,0 +1,32 @@
+{
+  "suite": "GamML Gym v1 classic causal tree",
+  "task": "cartpole",
+  "env_id": "CartPole-v1",
+  "claim_label": "causal_tree_teacher_v1",
+  "physics_backend": "Gymnasium env snapshot rollout",
+  "candidate_count": 32,
+  "horizon": 5,
+  "episodes": [
+    {
+      "seed": 11,
+      "return": 500.0,
+      "steps": 500,
+      "terminated": false,
+      "truncated": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/classic_causal_tree/cartpole/cartpole_causal_tree_seed11.mp4",
+      "mean_planning_ms": 0.7348504445981234
+    },
+    {
+      "seed": 23,
+      "return": 500.0,
+      "steps": 500,
+      "terminated": false,
+      "truncated": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/classic_causal_tree/cartpole/cartpole_causal_tree_seed23.mp4",
+      "mean_planning_ms": 0.7432924795430154
+    }
+  ],
+  "mean_return": 500.0,
+  "mean_steps": 500.0,
+  "mean_planning_ms": 0.7390714620705694
+}

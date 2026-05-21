@@ -1,0 +1,95 @@
+{
+  "suite": "GamML Gym v1 Acrobot energy-control causal-tree Think teacher",
+  "env_id": "Acrobot-v1",
+  "claim_label": "causal_tree_think_teacher_energy_swingup",
+  "status": "solved",
+  "physics_backend": "Gymnasium env snapshot/restore rollout",
+  "primitives": [
+    "pump_forward",
+    "pump_backward",
+    "coast",
+    "brake_hold"
+  ],
+  "candidate_chains": [
+    [
+      "pump_forward",
+      "pump_forward",
+      "brake_hold"
+    ],
+    [
+      "pump_forward",
+      "coast",
+      "pump_forward"
+    ],
+    [
+      "pump_backward",
+      "pump_forward",
+      "brake_hold"
+    ],
+    [
+      "coast",
+      "pump_forward",
+      "pump_forward"
+    ],
+    [
+      "brake_hold"
+    ],
+    [
+      "pump_forward"
+    ],
+    [
+      "pump_backward"
+    ],
+    [
+      "coast"
+    ]
+  ],
+  "episodes": [
+    {
+      "seed": 41,
+      "return": -128.0,
+      "steps": 129,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/acrobot_energy_causal_tree/videos/acrobot_energy_causal_tree_seed41.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/acrobot_energy_causal_tree/videos/acrobot_energy_causal_tree_seed41.gif",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/acrobot_energy_causal_tree/acrobot_energy_causal_tree_seed41_plans.json",
+      "primitive_counts": {
+        "pump_forward": 60,
+        "pump_backward": 0,
+        "coast": 69,
+        "brake_hold": 0
+      },
+      "mean_planning_ms": 4.796813900019367
+    },
+    {
+      "seed": 43,
+      "return": -135.0,
+      "steps": 136,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/acrobot_energy_causal_tree/videos/acrobot_energy_causal_tree_seed43.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/acrobot_energy_causal_tree/videos/acrobot_energy_causal_tree_seed43.gif",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/acrobot_energy_causal_tree/acrobot_energy_causal_tree_seed43_plans.json",
+      "primitive_counts": {
+        "pump_forward": 68,
+        "pump_backward": 0,
+        "coast": 67,
+        "brake_hold": 1
+      },
+      "mean_planning_ms": 4.78603525998016
+    }
+  ],
+  "success_count": 2,
+  "mean_return": -131.5,
+  "mean_steps": 132.5,
+  "mean_planning_ms": 4.791424579999763,
+  "horizon": {
+    "primitive_steps": 9,
+    "max_episode_steps": 500,
+    "candidate_count": 8
+  },
+  "overlay": "candidate futures, selected chain, height, tip velocity, and energy are rendered into each frame"
+}

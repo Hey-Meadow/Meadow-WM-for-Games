@@ -1,0 +1,90 @@
+{
+  "claim_label": "causal_tree_teacher_v1",
+  "env_id": "FlappyBird-v0",
+  "planner_type": "current_state_causal_tree_over_flap_noop_chains",
+  "not_random": true,
+  "not_ppo": true,
+  "uses_current_state": true,
+  "uses_lidar_observation": true,
+  "smoke_reset_render": {
+    "env_id": "FlappyBird-v0",
+    "obs_shape": [
+      180
+    ],
+    "obs_dtype": "float64",
+    "obs_min": 0.8073485895858156,
+    "obs_max": 1.0000000000000002,
+    "frame_shape": [
+      512,
+      288,
+      3
+    ],
+    "frame_dtype": "uint8",
+    "reset_info": {
+      "score": 0
+    }
+  },
+  "episodes": [
+    {
+      "tag": "seed_0",
+      "seed": 0,
+      "survival_steps": 260,
+      "success": true,
+      "score": 6,
+      "terminated": false,
+      "mean_planning_ms": 3.418611210788815,
+      "p95_planning_ms": 4.049302410567179,
+      "candidate_count": 128,
+      "horizon": 7,
+      "flap_rate": 0.05384615384615385,
+      "mp4": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_0.mp4",
+      "gif": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_0.gif"
+    },
+    {
+      "tag": "seed_7",
+      "seed": 7,
+      "survival_steps": 260,
+      "success": true,
+      "score": 6,
+      "terminated": false,
+      "mean_planning_ms": 3.4685676048796337,
+      "p95_planning_ms": 4.240447242045775,
+      "candidate_count": 128,
+      "horizon": 7,
+      "flap_rate": 0.05,
+      "mp4": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_7.mp4",
+      "gif": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_7.gif"
+    }
+  ],
+  "success": 2,
+  "success_rate": 1.0,
+  "survival_steps": [
+    260,
+    260
+  ],
+  "mean_survival_steps": 260.0,
+  "mean_planning_ms": 3.4435894078342244,
+  "candidate_count": 128,
+  "horizon": 7,
+  "videos": [
+    {
+      "mp4": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_0.mp4",
+      "gif": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_0.gif"
+    },
+    {
+      "mp4": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_7.mp4",
+      "gif": "meadow/gamml_gym_v1/flappybird/videos/flappy_causal_tree_seed_7.gif"
+    }
+  ],
+  "args": {
+    "out_dir": "meadow/gamml_gym_v1/flappybird",
+    "episodes": 2,
+    "seeds": "0,7",
+    "horizon": 7,
+    "candidate_count": 128,
+    "max_steps": 260,
+    "success_score": 1,
+    "fps": 30
+  },
+  "elapsed_sec": 14.326620817184448
+}

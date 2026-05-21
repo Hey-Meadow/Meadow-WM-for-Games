@@ -1,0 +1,113 @@
+{
+  "suite": "GamML Gym v1 MountainCar event-based energy causal tree",
+  "env_id": "MountainCar-v0",
+  "claim_label": "causal_tree_teacher_v2_energy_phase",
+  "physics_backend": "Gymnasium env snapshot/restore rollout",
+  "episodes": [
+    {
+      "seed": 0,
+      "return": -170.0,
+      "steps": 170,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed0.mp4",
+      "mean_planning_ms": 34.88955467131318,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed0_plans.json"
+    },
+    {
+      "seed": 1,
+      "return": -165.0,
+      "steps": 165,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed1.mp4",
+      "mean_planning_ms": 41.16599500870727,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed1_plans.json"
+    },
+    {
+      "seed": 2,
+      "return": -114.0,
+      "steps": 114,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed2.mp4",
+      "mean_planning_ms": 35.931030720300775,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed2_plans.json"
+    },
+    {
+      "seed": 3,
+      "return": -113.0,
+      "steps": 113,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed3.mp4",
+      "mean_planning_ms": 32.78500919510503,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed3_plans.json"
+    },
+    {
+      "seed": 4,
+      "return": -86.0,
+      "steps": 86,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed4.mp4",
+      "mean_planning_ms": 29.34848543711353,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed4_plans.json"
+    },
+    {
+      "seed": 5,
+      "return": -89.0,
+      "steps": 89,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed5.mp4",
+      "mean_planning_ms": 31.357211135380137,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed5_plans.json"
+    },
+    {
+      "seed": 31,
+      "return": -87.0,
+      "steps": 87,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed31.mp4",
+      "mean_planning_ms": 31.376059818745258,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed31_plans.json"
+    },
+    {
+      "seed": 37,
+      "return": -94.0,
+      "steps": 94,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/videos/mountaincar_energy_seed37.mp4",
+      "mean_planning_ms": 32.681899748376,
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_energy/mountaincar_energy_seed37_plans.json"
+    }
+  ],
+  "success_count": 8,
+  "mean_return": -114.75,
+  "mean_steps": 114.75,
+  "mean_planning_ms": 33.69190571688015,
+  "candidate_count": 84,
+  "horizon": {
+    "macro_depth": 3,
+    "max_macro_steps": 80,
+    "max_episode_steps": 200
+  },
+  "macro_depth": 3,
+  "macro_set": [
+    "push_left_until_turn",
+    "push_right_until_turn",
+    "energy_pump_cycle",
+    "commit_right_when_energy_enough"
+  ]
+}

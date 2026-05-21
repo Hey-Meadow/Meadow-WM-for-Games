@@ -1,0 +1,83 @@
+{
+  "env_id": "CarRacing-v3",
+  "claim_label": "causal_tree_teacher_v3_track_state_corner_memory",
+  "started_at": "2026-04-28T16:40:38+0800",
+  "episodes": 2,
+  "mean_return": 172.25886033748833,
+  "mean_steps": 520.0,
+  "mean_planning_ms": 0.6859305631503678,
+  "candidate_count": 12,
+  "track_features_used": [
+    "road_mask",
+    "centerline_offset",
+    "near_road_centroid",
+    "mid_road_centroid",
+    "far_road_centroid",
+    "curvature_proxy",
+    "heading_proxy",
+    "grass_offtrack_risk",
+    "speed_proxy",
+    "corner_memory_bias",
+    "offset_integral",
+    "turn_hold_frames"
+  ],
+  "snapshot_rollout_used": false,
+  "fallback_reason": "Box2D deepcopy step AssertionError",
+  "smoke": {
+    "env_id": "CarRacing-v3",
+    "obs_shape": [
+      96,
+      96,
+      3
+    ],
+    "obs_dtype": "uint8",
+    "frame_shape": [
+      400,
+      600,
+      3
+    ],
+    "frame_dtype": "uint8",
+    "reset_info_keys": [],
+    "step_tuple_len": 5
+  },
+  "episode_results": [
+    {
+      "seed": 20260428,
+      "return": 100.98507462686797,
+      "steps": 520,
+      "mean_planning_ms": 0.6938423000974581,
+      "candidate_count": 12,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/carracing_track/videos/carracing_track_seed20260428.mp4",
+      "selected_macro_counts": {
+        "brake_turn_left": 365,
+        "brake_turn_right": 21,
+        "hard_left": 5,
+        "memory_left": 8,
+        "soft_left": 13,
+        "soft_right": 7,
+        "straight_accel": 101
+      }
+    },
+    {
+      "seed": 20260429,
+      "return": 243.53264604810866,
+      "steps": 520,
+      "mean_planning_ms": 0.6780188262032775,
+      "candidate_count": 12,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/carracing_track/videos/carracing_track_seed20260429.mp4",
+      "selected_macro_counts": {
+        "brake_turn_left": 222,
+        "brake_turn_right": 39,
+        "hard_left": 2,
+        "hard_right": 1,
+        "memory_left": 14,
+        "memory_right": 23,
+        "soft_left": 35,
+        "soft_right": 29,
+        "straight_accel": 153,
+        "tight_memory_left": 2
+      }
+    }
+  ],
+  "note": "RGB track-state causal scorer with action sequence macros; not a solved-policy claim."
+}

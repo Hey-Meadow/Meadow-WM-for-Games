@@ -1,0 +1,4720 @@
+{
+  "claim_label": "rule_memory_causal_tree_think_teacher_v1",
+  "teacher": "rule/memory causal tree over MiniGrid symbolic grid with cloned candidate futures",
+  "not_random": true,
+  "not_ppo": true,
+  "env_priority": [
+    "MiniGrid-DoorKey-5x5-v0",
+    "MiniGrid-DoorKey-6x6-v0",
+    "MiniGrid-Empty-5x5-v0",
+    "MiniGrid-Unlock-v0",
+    "MiniGrid-UnlockPickup-v0"
+  ],
+  "selected_env_id": "MiniGrid-DoorKey-5x5-v0",
+  "fixed_available_env_id": "MiniGrid-DoorKey-5x5-v0",
+  "candidate_plan_bank": [
+    "go_to_key",
+    "pickup",
+    "go_to_door",
+    "unlock",
+    "go_to_goal"
+  ],
+  "memory_model": {
+    "visited_cells": "agent trajectory memory",
+    "object_memory": "key/door/goal remembered from the MiniGrid symbolic grid snapshot",
+    "honesty_note": "This is a symbolic Think teacher artifact, not a learned policy."
+  },
+  "smoke": {
+    "python_executable": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+    "python_version": "3.11.12",
+    "minigrid_registered_by_import": true,
+    "env_probes": [
+      {
+        "env_id": "MiniGrid-DoorKey-5x5-v0",
+        "ok": true,
+        "obs_keys": [
+          "image",
+          "direction",
+          "mission"
+        ],
+        "obs_image_shape": [
+          7,
+          7,
+          3
+        ],
+        "frame_shape": [
+          160,
+          160,
+          3
+        ],
+        "width": 5,
+        "height": 5,
+        "mission": "use the key to open the door and then get to the goal",
+        "left_step": {
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false
+        },
+        "objects": [
+          {
+            "pos": [
+              0,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              1
+            ],
+            "type": "door",
+            "color": "yellow",
+            "is_locked": true,
+            "is_open": false
+          },
+          {
+            "pos": [
+              4,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              2
+            ],
+            "type": "key",
+            "color": "yellow",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              3
+            ],
+            "type": "goal",
+            "color": "green",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          }
+        ],
+        "reset_info": {}
+      },
+      {
+        "env_id": "MiniGrid-DoorKey-6x6-v0",
+        "ok": true,
+        "obs_keys": [
+          "image",
+          "direction",
+          "mission"
+        ],
+        "obs_image_shape": [
+          7,
+          7,
+          3
+        ],
+        "frame_shape": [
+          192,
+          192,
+          3
+        ],
+        "width": 6,
+        "height": 6,
+        "mission": "use the key to open the door and then get to the goal",
+        "left_step": {
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false
+        },
+        "objects": [
+          {
+            "pos": [
+              0,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              1
+            ],
+            "type": "door",
+            "color": "yellow",
+            "is_locked": true,
+            "is_open": false
+          },
+          {
+            "pos": [
+              5,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              3
+            ],
+            "type": "key",
+            "color": "yellow",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              4
+            ],
+            "type": "goal",
+            "color": "green",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          }
+        ],
+        "reset_info": {}
+      },
+      {
+        "env_id": "MiniGrid-Empty-5x5-v0",
+        "ok": true,
+        "obs_keys": [
+          "image",
+          "direction",
+          "mission"
+        ],
+        "obs_image_shape": [
+          7,
+          7,
+          3
+        ],
+        "frame_shape": [
+          160,
+          160,
+          3
+        ],
+        "width": 5,
+        "height": 5,
+        "mission": "get to the green goal square",
+        "left_step": {
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false
+        },
+        "objects": [
+          {
+            "pos": [
+              0,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              3
+            ],
+            "type": "goal",
+            "color": "green",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          }
+        ],
+        "reset_info": {}
+      },
+      {
+        "env_id": "MiniGrid-Unlock-v0",
+        "ok": true,
+        "obs_keys": [
+          "image",
+          "direction",
+          "mission"
+        ],
+        "obs_image_shape": [
+          7,
+          7,
+          3
+        ],
+        "frame_shape": [
+          192,
+          352,
+          3
+        ],
+        "width": 11,
+        "height": 6,
+        "mission": "open the door",
+        "left_step": {
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false
+        },
+        "objects": [
+          {
+            "pos": [
+              0,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              6,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              7,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              8,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              9,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              1
+            ],
+            "type": "key",
+            "color": "purple",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              4
+            ],
+            "type": "door",
+            "color": "purple",
+            "is_locked": true,
+            "is_open": false
+          },
+          {
+            "pos": [
+              10,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              6,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              7,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              8,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              9,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          }
+        ],
+        "reset_info": {}
+      },
+      {
+        "env_id": "MiniGrid-UnlockPickup-v0",
+        "ok": true,
+        "obs_keys": [
+          "image",
+          "direction",
+          "mission"
+        ],
+        "obs_image_shape": [
+          7,
+          7,
+          3
+        ],
+        "frame_shape": [
+          192,
+          352,
+          3
+        ],
+        "width": 11,
+        "height": 6,
+        "mission": "pick up the purple box",
+        "left_step": {
+          "reward": 0.0,
+          "terminated": false,
+          "truncated": false
+        },
+        "objects": [
+          {
+            "pos": [
+              0,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              6,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              7,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              8,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              9,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              0
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              8,
+              1
+            ],
+            "type": "box",
+            "color": "purple",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              1
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              2
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              3
+            ],
+            "type": "key",
+            "color": "green",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              3
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              4
+            ],
+            "type": "door",
+            "color": "green",
+            "is_locked": true,
+            "is_open": false
+          },
+          {
+            "pos": [
+              10,
+              4
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              0,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              1,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              2,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              3,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              4,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              5,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              6,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              7,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              8,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              9,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          },
+          {
+            "pos": [
+              10,
+              5
+            ],
+            "type": "wall",
+            "color": "grey",
+            "is_locked": null,
+            "is_open": null
+          }
+        ],
+        "reset_info": {}
+      }
+    ]
+  },
+  "episodes": [
+    {
+      "seed": 0,
+      "env_id": "MiniGrid-DoorKey-5x5-v0",
+      "return": 0.9604,
+      "steps": 11,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "partial_result": false,
+      "initial_memory": {
+        "agent_pos": [
+          1,
+          3
+        ],
+        "agent_dir": "west",
+        "visited_cells": 1,
+        "key": {
+          "pos": [
+            1,
+            2
+          ],
+          "type": "key",
+          "color": "yellow",
+          "is_locked": null,
+          "is_open": null
+        },
+        "door": {
+          "pos": [
+            2,
+            1
+          ],
+          "type": "door",
+          "color": "yellow",
+          "is_locked": true,
+          "is_open": false
+        },
+        "goal": {
+          "pos": [
+            3,
+            3
+          ],
+          "type": "goal",
+          "color": "green",
+          "is_locked": null,
+          "is_open": null
+        },
+        "carrying": null,
+        "door_open": false,
+        "door_locked": true
+      },
+      "final_memory": {
+        "agent_pos": [
+          3,
+          3
+        ],
+        "agent_dir": "south",
+        "visited_cells": 7,
+        "key": {
+          "pos": [
+            1,
+            2
+          ],
+          "type": "key",
+          "color": "yellow",
+          "is_locked": null,
+          "is_open": null
+        },
+        "door": {
+          "pos": [
+            2,
+            1
+          ],
+          "type": "door",
+          "color": "yellow",
+          "is_locked": false,
+          "is_open": true
+        },
+        "goal": {
+          "pos": [
+            3,
+            3
+          ],
+          "type": "goal",
+          "color": "green",
+          "is_locked": null,
+          "is_open": null
+        },
+        "carrying": {
+          "type": "key",
+          "color": "yellow"
+        },
+        "door_open": true,
+        "door_locked": false
+      },
+      "visited_cells_count": 7,
+      "mean_planning_ms": 0.823140356012366,
+      "candidate_count_mean": 1.8181818181818181,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed0.gif",
+      "plan_records": [
+        {
+          "step": 0,
+          "phase": "need_key",
+          "selected_plan": "go_to_key",
+          "selected_first_action": "right",
+          "selected_chain": [
+            "right"
+          ],
+          "score": 998.0,
+          "reason": "route to remembered key",
+          "candidate_count": 1,
+          "planning_ms": 0.60374999884516,
+          "top_candidates": [
+            {
+              "name": "go_to_key",
+              "score": 998.0,
+              "chain": [
+                "right"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    3
+                  ],
+                  "agent_dir": "north",
+                  "carrying": null,
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": false,
+                  "objects": {
+                    "key": {
+                      "pos": [
+                        1,
+                        2
+                      ],
+                      "type": "key",
+                      "color": "yellow",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              3
+            ],
+            "agent_dir": "north",
+            "visited_cells": 1,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": null,
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 1,
+          "phase": "need_key",
+          "selected_plan": "pickup",
+          "selected_first_action": "pickup",
+          "selected_chain": [
+            "pickup"
+          ],
+          "score": 1898.5,
+          "reason": "key is in front",
+          "candidate_count": 2,
+          "planning_ms": 0.8259169990196824,
+          "top_candidates": [
+            {
+              "name": "pickup",
+              "score": 1898.5,
+              "chain": [
+                "pickup"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    3
+                  ],
+                  "agent_dir": "north",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "pickup",
+              "score": 1898.5,
+              "chain": [
+                "pickup"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    3
+                  ],
+                  "agent_dir": "north",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              3
+            ],
+            "agent_dir": "north",
+            "visited_cells": 1,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 2,
+          "phase": "need_unlock",
+          "selected_plan": "go_to_door",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "forward",
+            "right"
+          ],
+          "score": 995.0,
+          "reason": "route to remembered locked door",
+          "candidate_count": 2,
+          "planning_ms": 0.9604999795556068,
+          "top_candidates": [
+            {
+              "name": "go_to_door",
+              "score": 995.0,
+              "chain": [
+                "forward",
+                "forward",
+                "right"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 3,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    2
+                  ],
+                  "agent_dir": "north",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              2
+            ],
+            "agent_dir": "north",
+            "visited_cells": 2,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 3,
+          "phase": "need_unlock",
+          "selected_plan": "go_to_door",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "right"
+          ],
+          "score": 996.5,
+          "reason": "route to remembered locked door",
+          "candidate_count": 2,
+          "planning_ms": 0.9009590139612556,
+          "top_candidates": [
+            {
+              "name": "go_to_door",
+              "score": 996.5,
+              "chain": [
+                "forward",
+                "right"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 2,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "north",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              1
+            ],
+            "agent_dir": "north",
+            "visited_cells": 3,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 4,
+          "phase": "need_unlock",
+          "selected_plan": "go_to_door",
+          "selected_first_action": "right",
+          "selected_chain": [
+            "right"
+          ],
+          "score": 998.0,
+          "reason": "route to remembered locked door",
+          "candidate_count": 1,
+          "planning_ms": 0.45058398973196745,
+          "top_candidates": [
+            {
+              "name": "go_to_door",
+              "score": 998.0,
+              "chain": [
+                "right"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              1
+            ],
+            "agent_dir": "east",
+            "visited_cells": 3,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 5,
+          "phase": "need_unlock",
+          "selected_plan": "unlock",
+          "selected_first_action": "toggle",
+          "selected_chain": [
+            "toggle"
+          ],
+          "score": 2118.5,
+          "reason": "locked door is in front",
+          "candidate_count": 2,
+          "planning_ms": 0.7695829262956977,
+          "top_candidates": [
+            {
+              "name": "unlock",
+              "score": 2118.5,
+              "chain": [
+                "toggle"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "unlock",
+              "score": 2118.5,
+              "chain": [
+                "toggle"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              1
+            ],
+            "agent_dir": "east",
+            "visited_cells": 3,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 6,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "forward",
+            "right",
+            "forward",
+            "forward"
+          ],
+          "score": 7052.9,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 1.0467090178281069,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7052.9,
+              "chain": [
+                "forward",
+                "forward",
+                "right",
+                "forward",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9604,
+                "terminated": true,
+                "truncated": false,
+                "steps": 5,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    2,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              2,
+              1
+            ],
+            "agent_dir": "east",
+            "visited_cells": 4,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 7,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "right",
+            "forward",
+            "forward"
+          ],
+          "score": 7054.4,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 0.9665000252425671,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7054.4,
+              "chain": [
+                "forward",
+                "right",
+                "forward",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9604,
+                "terminated": true,
+                "truncated": false,
+                "steps": 4,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    1
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              1
+            ],
+            "agent_dir": "east",
+            "visited_cells": 5,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 8,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "right",
+          "selected_chain": [
+            "right",
+            "forward",
+            "forward"
+          ],
+          "score": 7055.9,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 1.0536669287830591,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7055.9,
+              "chain": [
+                "right",
+                "forward",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9604,
+                "terminated": true,
+                "truncated": false,
+                "steps": 3,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 77.0,
+              "chain": [
+                "right",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 2,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    2
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              1
+            ],
+            "agent_dir": "south",
+            "visited_cells": 5,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 9,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "forward"
+          ],
+          "score": 7057.4,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 0.7754170801490545,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7057.4,
+              "chain": [
+                "forward",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9604,
+                "terminated": true,
+                "truncated": false,
+                "steps": 2,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    2
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              2
+            ],
+            "agent_dir": "south",
+            "visited_cells": 6,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 10,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward"
+          ],
+          "score": 7058.9,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 0.7009579567238688,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7058.9,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9604,
+                "terminated": true,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 6038.9,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9604,
+                "terminated": true,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        1
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              3
+            ],
+            "agent_dir": "south",
+            "visited_cells": 7,
+            "key": {
+              "pos": [
+                1,
+                2
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                1
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "env_id": "MiniGrid-DoorKey-5x5-v0",
+      "return": 0.9748,
+      "steps": 7,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "partial_result": false,
+      "initial_memory": {
+        "agent_pos": [
+          1,
+          2
+        ],
+        "agent_dir": "south",
+        "visited_cells": 1,
+        "key": {
+          "pos": [
+            1,
+            3
+          ],
+          "type": "key",
+          "color": "yellow",
+          "is_locked": null,
+          "is_open": null
+        },
+        "door": {
+          "pos": [
+            2,
+            2
+          ],
+          "type": "door",
+          "color": "yellow",
+          "is_locked": true,
+          "is_open": false
+        },
+        "goal": {
+          "pos": [
+            3,
+            3
+          ],
+          "type": "goal",
+          "color": "green",
+          "is_locked": null,
+          "is_open": null
+        },
+        "carrying": null,
+        "door_open": false,
+        "door_locked": true
+      },
+      "final_memory": {
+        "agent_pos": [
+          3,
+          3
+        ],
+        "agent_dir": "south",
+        "visited_cells": 4,
+        "key": {
+          "pos": [
+            1,
+            3
+          ],
+          "type": "key",
+          "color": "yellow",
+          "is_locked": null,
+          "is_open": null
+        },
+        "door": {
+          "pos": [
+            2,
+            2
+          ],
+          "type": "door",
+          "color": "yellow",
+          "is_locked": false,
+          "is_open": true
+        },
+        "goal": {
+          "pos": [
+            3,
+            3
+          ],
+          "type": "goal",
+          "color": "green",
+          "is_locked": null,
+          "is_open": null
+        },
+        "carrying": {
+          "type": "key",
+          "color": "yellow"
+        },
+        "door_open": true,
+        "door_locked": false
+      },
+      "visited_cells_count": 4,
+      "mean_planning_ms": 1.1493394018283911,
+      "candidate_count_mean": 2.2857142857142856,
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed1.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed1.gif",
+      "plan_records": [
+        {
+          "step": 0,
+          "phase": "need_key",
+          "selected_plan": "pickup",
+          "selected_first_action": "pickup",
+          "selected_chain": [
+            "pickup"
+          ],
+          "score": 1898.5,
+          "reason": "key is in front",
+          "candidate_count": 3,
+          "planning_ms": 1.58166594337672,
+          "top_candidates": [
+            {
+              "name": "pickup",
+              "score": 1898.5,
+              "chain": [
+                "pickup"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    2
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "pickup",
+              "score": 1898.5,
+              "chain": [
+                "pickup"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    2
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 75.5,
+              "chain": [
+                "left",
+                "left",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 3,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "north",
+                  "carrying": null,
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": false,
+                  "objects": {
+                    "key": {
+                      "pos": [
+                        1,
+                        3
+                      ],
+                      "type": "key",
+                      "color": "yellow",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              2
+            ],
+            "agent_dir": "south",
+            "visited_cells": 1,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 1,
+          "phase": "need_unlock",
+          "selected_plan": "go_to_door",
+          "selected_first_action": "left",
+          "selected_chain": [
+            "left"
+          ],
+          "score": 998.0,
+          "reason": "route to remembered locked door",
+          "candidate_count": 2,
+          "planning_ms": 0.8302920032292604,
+          "top_candidates": [
+            {
+              "name": "go_to_door",
+              "score": 998.0,
+              "chain": [
+                "left"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    2
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              2
+            ],
+            "agent_dir": "east",
+            "visited_cells": 1,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": true,
+              "is_open": false
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": false,
+            "door_locked": true
+          }
+        },
+        {
+          "step": 2,
+          "phase": "need_unlock",
+          "selected_plan": "unlock",
+          "selected_first_action": "toggle",
+          "selected_chain": [
+            "toggle"
+          ],
+          "score": 2118.5,
+          "reason": "locked door is in front",
+          "candidate_count": 3,
+          "planning_ms": 1.2797919334843755,
+          "top_candidates": [
+            {
+              "name": "unlock",
+              "score": 2118.5,
+              "chain": [
+                "toggle"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    2
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "unlock",
+              "score": 2118.5,
+              "chain": [
+                "toggle"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    2
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 77.0,
+              "chain": [
+                "left",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 2,
+                "progress": {
+                  "agent_pos": [
+                    1,
+                    1
+                  ],
+                  "agent_dir": "north",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": false,
+                  "door_locked": true,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": true,
+                      "is_open": false
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              1,
+              2
+            ],
+            "agent_dir": "east",
+            "visited_cells": 1,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 3,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "forward",
+            "right",
+            "forward"
+          ],
+          "score": 7068.8,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 1.0663330322131515,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7068.8,
+              "chain": [
+                "forward",
+                "forward",
+                "right",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9748,
+                "terminated": true,
+                "truncated": false,
+                "steps": 4,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    2,
+                    2
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              2,
+              2
+            ],
+            "agent_dir": "east",
+            "visited_cells": 2,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 4,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward",
+            "right",
+            "forward"
+          ],
+          "score": 7070.3,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 1.2901669833809137,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7070.3,
+              "chain": [
+                "forward",
+                "right",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9748,
+                "terminated": true,
+                "truncated": false,
+                "steps": 3,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 78.5,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    2
+                  ],
+                  "agent_dir": "east",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              2
+            ],
+            "agent_dir": "east",
+            "visited_cells": 3,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 5,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "right",
+          "selected_chain": [
+            "right",
+            "forward"
+          ],
+          "score": 7071.8,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 1.0126669658347964,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7071.8,
+              "chain": [
+                "right",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9748,
+                "terminated": true,
+                "truncated": false,
+                "steps": 2,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 77.0,
+              "chain": [
+                "left",
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.0,
+                "terminated": false,
+                "truncated": false,
+                "steps": 2,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    1
+                  ],
+                  "agent_dir": "north",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              2
+            ],
+            "agent_dir": "south",
+            "visited_cells": 3,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        },
+        {
+          "step": 6,
+          "phase": "need_goal",
+          "selected_plan": "go_to_goal",
+          "selected_first_action": "forward",
+          "selected_chain": [
+            "forward"
+          ],
+          "score": 7073.3,
+          "reason": "route to remembered goal",
+          "candidate_count": 2,
+          "planning_ms": 0.984458951279521,
+          "top_candidates": [
+            {
+              "name": "go_to_goal",
+              "score": 7073.3,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9748,
+                "terminated": true,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            },
+            {
+              "name": "explore_grid",
+              "score": 6053.3,
+              "chain": [
+                "forward"
+              ],
+              "predicted": {
+                "reward": 0.9748,
+                "terminated": true,
+                "truncated": false,
+                "steps": 1,
+                "progress": {
+                  "agent_pos": [
+                    3,
+                    3
+                  ],
+                  "agent_dir": "south",
+                  "carrying": {
+                    "type": "key",
+                    "color": "yellow"
+                  },
+                  "door_open": true,
+                  "door_locked": false,
+                  "has_key": true,
+                  "objects": {
+                    "key": null,
+                    "door": {
+                      "pos": [
+                        2,
+                        2
+                      ],
+                      "type": "door",
+                      "color": "yellow",
+                      "is_locked": false,
+                      "is_open": true
+                    },
+                    "goal": {
+                      "pos": [
+                        3,
+                        3
+                      ],
+                      "type": "goal",
+                      "color": "green",
+                      "is_locked": null,
+                      "is_open": null
+                    },
+                    "box": null
+                  }
+                }
+              }
+            }
+          ],
+          "memory_after": {
+            "agent_pos": [
+              3,
+              3
+            ],
+            "agent_dir": "south",
+            "visited_cells": 4,
+            "key": {
+              "pos": [
+                1,
+                3
+              ],
+              "type": "key",
+              "color": "yellow",
+              "is_locked": null,
+              "is_open": null
+            },
+            "door": {
+              "pos": [
+                2,
+                2
+              ],
+              "type": "door",
+              "color": "yellow",
+              "is_locked": false,
+              "is_open": true
+            },
+            "goal": {
+              "pos": [
+                3,
+                3
+              ],
+              "type": "goal",
+              "color": "green",
+              "is_locked": null,
+              "is_open": null
+            },
+            "carrying": {
+              "type": "key",
+              "color": "yellow"
+            },
+            "door_open": true,
+            "door_locked": false
+          }
+        }
+      ]
+    }
+  ],
+  "episode_count": 2,
+  "success_count": 2,
+  "success_rate": 1.0,
+  "partial_result": false,
+  "honest_result": "solved_in_recorded_episodes",
+  "mean_return": 0.9676,
+  "mean_steps": 9.0,
+  "mean_planning_ms": 0.9862398789203786,
+  "videos": [
+    {
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed0.gif"
+    },
+    {
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed1.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_5x5_v0_seed1.gif"
+    }
+  ],
+  "args": {
+    "out_dir": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree",
+    "env_id": "",
+    "episodes": 2,
+    "seeds": "0,1",
+    "max_steps": 80,
+    "top_k": 8,
+    "fps": 6,
+    "final_hold_frames": 8,
+    "keep_plan_records": 80
+  },
+  "elapsed_sec": 1.5778252079617232
+}

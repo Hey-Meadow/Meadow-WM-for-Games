@@ -1,0 +1,14 @@
+{
+  "name": "meadow-wm-for-games",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static Meadow WM for Games artifact viewer for OpenAI Gym causal-tree experiments.",
+  "scripts": {
+    "preview": "python3 -m http.server 8123 --directory public",
+    "cf:preview": "npx wrangler pages dev public",
+    "cf:deploy": "npx wrangler pages deploy public --project-name meadow-wm-for-games"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

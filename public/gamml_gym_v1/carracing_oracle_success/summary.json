@@ -1,0 +1,46 @@
+{
+  "env_id": "CarRacing-v3",
+  "claim_label": "causal_tree_teacher_success_oracle_track_memory",
+  "started_at": "2026-04-28T17:19:53+0800",
+  "teacher": "privileged track centerline + car pose causal controller",
+  "success_definition": "lap_finished or visited >= 95% track tiles",
+  "episodes": 1,
+  "success_count": 1,
+  "mean_return": 902.6999999999814,
+  "mean_steps": 973.0,
+  "mean_tiles_visited": 291.0,
+  "episode_results": [
+    {
+      "seed": 20260429,
+      "return": 902.6999999999814,
+      "steps": 973,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "tiles_visited": 291,
+      "track_len": 291,
+      "lap_finished_info": true,
+      "last_debug": {
+        "nearest_idx": 288,
+        "target_idx": 1,
+        "tiles": 290,
+        "track_len": 291,
+        "angle_error": 0.00039617640376088224,
+        "speed": 52.290663641081096,
+        "steer": 0.00047541168451305867,
+        "gas": 0.18,
+        "brake": 0.04,
+        "target": [
+          218.95150451709767,
+          -49.999067083998625
+        ],
+        "position": [
+          216.94989013671875,
+          -65.69319915771484
+        ]
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/carracing_oracle_success/videos/carracing_oracle_success_seed20260429.mp4"
+    }
+  ],
+  "note": "Successful oracle-track Think teacher. Uses env track and pose; not pixel-only and not a distilled student."
+}

@@ -1,0 +1,400 @@
+{
+  "suite": "GamML Gym v1 extra causal-tree games",
+  "tasks": [
+    {
+      "suite": "GamML Gym v1 extra causal-tree games",
+      "task": "MiniGrid DoorKey",
+      "env_id": "MiniGrid-DoorKey-5x5-v0",
+      "claim_label": "rule_memory_causal_tree_teacher_v1",
+      "result_label": "verified_result",
+      "candidate_primitives": [
+        "go_to_key",
+        "pickup_key",
+        "go_to_door",
+        "face_locked_door",
+        "unlock_door",
+        "go_to_goal"
+      ],
+      "success_definition": "DoorKey episode terminates with positive reward",
+      "episodes": [
+        {
+          "seed": 0,
+          "return": 0.9604,
+          "steps": 11,
+          "terminated": true,
+          "truncated": false,
+          "success": true,
+          "selected_counts": {
+            "face_key": 1,
+            "pickup_key": 1,
+            "go_to_door": 2,
+            "face_locked_door": 1,
+            "unlock_door": 1,
+            "go_to_goal": 5
+          },
+          "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_causal_tree_seed0.mp4",
+          "sample_decisions": [
+            {
+              "step": 0,
+              "selected": "face_key",
+              "action": 1,
+              "memory": {
+                "key": [
+                  1,
+                  2
+                ],
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": null,
+                "door_open": false
+              }
+            },
+            {
+              "step": 1,
+              "selected": "pickup_key",
+              "action": 3,
+              "memory": {
+                "key": [
+                  1,
+                  2
+                ],
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": null,
+                "door_open": false
+              }
+            },
+            {
+              "step": 2,
+              "selected": "go_to_door",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": false
+              }
+            },
+            {
+              "step": 3,
+              "selected": "go_to_door",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": false
+              }
+            },
+            {
+              "step": 4,
+              "selected": "face_locked_door",
+              "action": 1,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": false
+              }
+            },
+            {
+              "step": 5,
+              "selected": "unlock_door",
+              "action": 5,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": false
+              }
+            },
+            {
+              "step": 6,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 7,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 8,
+              "selected": "go_to_goal",
+              "action": 1,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 9,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 10,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  1
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            }
+          ]
+        },
+        {
+          "seed": 1,
+          "return": 0.9748,
+          "steps": 7,
+          "terminated": true,
+          "truncated": false,
+          "success": true,
+          "selected_counts": {
+            "pickup_key": 1,
+            "face_locked_door": 1,
+            "unlock_door": 1,
+            "go_to_goal": 4
+          },
+          "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/minigrid_doorkey_causal_tree/videos/minigrid_doorkey_causal_tree_seed1.mp4",
+          "sample_decisions": [
+            {
+              "step": 0,
+              "selected": "pickup_key",
+              "action": 3,
+              "memory": {
+                "key": [
+                  1,
+                  3
+                ],
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": null,
+                "door_open": false
+              }
+            },
+            {
+              "step": 1,
+              "selected": "face_locked_door",
+              "action": 0,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": false
+              }
+            },
+            {
+              "step": 2,
+              "selected": "unlock_door",
+              "action": 5,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": false
+              }
+            },
+            {
+              "step": 3,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 4,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 5,
+              "selected": "go_to_goal",
+              "action": 1,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            },
+            {
+              "step": 6,
+              "selected": "go_to_goal",
+              "action": 2,
+              "memory": {
+                "key": null,
+                "door": [
+                  2,
+                  2
+                ],
+                "goal": [
+                  3,
+                  3
+                ],
+                "carrying": "key",
+                "door_open": true
+              }
+            }
+          ]
+        }
+      ],
+      "episodes_count": 2,
+      "success_count": 2,
+      "mean_return": 0.9676,
+      "mean_steps": 9.0,
+      "created_at": "2026-04-29T02:27:03+0800"
+    }
+  ],
+  "success_count": 2,
+  "episodes_count": 2,
+  "created_at": "2026-04-29T02:27:03+0800"
+}

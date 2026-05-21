@@ -1,0 +1,100 @@
+{
+  "claim_label": "causal_tree_teacher_v1",
+  "started_at": "2026-04-28T01:15:21+0800",
+  "smoke": [
+    {
+      "env_id": "BipedalWalker-v3",
+      "obs_shape": [
+        24
+      ],
+      "action_shape": [
+        4
+      ],
+      "frame_shape": [
+        400,
+        600,
+        3
+      ],
+      "step_tuple_len": 5
+    },
+    {
+      "env_id": "CarRacing-v3",
+      "obs_shape": [
+        96,
+        96,
+        3
+      ],
+      "action_shape": [
+        3
+      ],
+      "frame_shape": [
+        400,
+        600,
+        3
+      ],
+      "step_tuple_len": 5
+    }
+  ],
+  "env_summaries": [
+    {
+      "env_id": "BipedalWalker-v3",
+      "episodes": 2,
+      "return": -123.24500522762537,
+      "steps": 99.5,
+      "mean_planning_ms": 0.15233752360059455,
+      "candidate_count": 11,
+      "claim_label": "causal_tree_teacher_v1",
+      "episode_results": [
+        {
+          "env_id": "BipedalWalker-v3",
+          "episode_index": 0,
+          "seed": 20260428,
+          "return": -122.54609355330467,
+          "steps": 100,
+          "mean_planning_ms": 0.14754245057702065,
+          "candidate_count": 11,
+          "claim_label": "causal_tree_teacher_v1",
+          "video": "meadow/gamml_gym_v1/box2d/artifacts/bipedalwalker_v3_seed_20260428.mp4",
+          "last_selected_primitive": "brace_both_knees"
+        },
+        {
+          "env_id": "BipedalWalker-v3",
+          "episode_index": 1,
+          "seed": 20260429,
+          "return": -123.94391690194607,
+          "steps": 99,
+          "mean_planning_ms": 0.15713259662416848,
+          "candidate_count": 11,
+          "claim_label": "causal_tree_teacher_v1",
+          "video": "meadow/gamml_gym_v1/box2d/artifacts/bipedalwalker_v3_seed_20260429.mp4",
+          "last_selected_primitive": "brace_both_knees"
+        }
+      ]
+    },
+    {
+      "env_id": "CarRacing-v3",
+      "episodes": 1,
+      "return": 16.2165605095539,
+      "steps": 220.0,
+      "mean_planning_ms": 0.26246800394305453,
+      "candidate_count": 9,
+      "claim_label": "causal_tree_teacher_v1",
+      "episode_results": [
+        {
+          "env_id": "CarRacing-v3",
+          "episode_index": 0,
+          "seed": 20261428,
+          "return": 16.2165605095539,
+          "steps": 220,
+          "mean_planning_ms": 0.26246800394305453,
+          "candidate_count": 9,
+          "claim_label": "causal_tree_teacher_v1",
+          "video": "meadow/gamml_gym_v1/box2d/artifacts/carracing_v3_seed_20261428.mp4",
+          "last_selected_primitive": "gas_left_soft"
+        }
+      ]
+    }
+  ],
+  "artifacts_dir": "meadow/gamml_gym_v1/box2d/artifacts",
+  "note": "Game-like causal-tree teacher demo; not a solved-policy claim."
+}

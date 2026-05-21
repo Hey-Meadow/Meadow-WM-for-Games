@@ -1,0 +1,2431 @@
+{
+  "claim_label": "causal_tree_teacher_v1",
+  "status": "ok",
+  "env_unavailable": false,
+  "env_id": "ALE/Pong-v5",
+  "env_check": {
+    "python": "/opt/homebrew/opt/python@3.11/bin/python3.11",
+    "python_version": "3.11.12",
+    "gymnasium_import_ok": true,
+    "ale_py_import_ok": true,
+    "registered_ale": true,
+    "gymnasium_version": "1.2.1",
+    "ale_py_version": "0.11.2",
+    "candidates": [
+      {
+        "env_id": "ALE/Pong-v5",
+        "ok": true,
+        "obs_shape": [
+          210,
+          160,
+          3
+        ],
+        "frame_shape": [
+          210,
+          160,
+          3
+        ],
+        "action_space": "Discrete(6)",
+        "action_meanings": [
+          "NOOP",
+          "FIRE",
+          "RIGHT",
+          "LEFT",
+          "RIGHTFIRE",
+          "LEFTFIRE"
+        ],
+        "reset_info": {
+          "lives": 0,
+          "episode_frame_number": 0,
+          "frame_number": 0,
+          "seeds": [
+            2968811710,
+            3677149159
+          ]
+        }
+      }
+    ]
+  },
+  "teacher": "pixel object extraction plus ALE clone/restore causal-tree ranking",
+  "object_extraction": "connected components over RGB Pong frame for ball, player paddle, and opponent paddle",
+  "chain_ranking": "move_up/move_down/noop action chains scored by reward, survival, and predicted player-paddle intercept alignment",
+  "episodes": [
+    {
+      "tag": "seed0",
+      "seed": 0,
+      "env_id": "ALE/Pong-v5",
+      "steps": 300,
+      "total_reward": 0.0,
+      "terminated": false,
+      "positive_rewards": 0,
+      "negative_rewards": 0,
+      "mean_planning_ms": 22.465469138308737,
+      "p95_planning_ms": 29.194797901436694,
+      "candidate_count": 27,
+      "horizon": 3,
+      "eval_tail": 5,
+      "action_probe": {
+        "action_meanings": [
+          "NOOP",
+          "FIRE",
+          "RIGHT",
+          "LEFT",
+          "RIGHTFIRE",
+          "LEFTFIRE"
+        ],
+        "probes": [
+          {
+            "action": 0,
+            "meaning": "NOOP",
+            "player_y": 103.5,
+            "delta_y": 0.0
+          },
+          {
+            "action": 1,
+            "meaning": "FIRE",
+            "player_y": 103.5,
+            "delta_y": 0.0
+          },
+          {
+            "action": 2,
+            "meaning": "RIGHT",
+            "player_y": 57.5,
+            "delta_y": -46.0
+          },
+          {
+            "action": 3,
+            "meaning": "LEFT",
+            "player_y": 149.5,
+            "delta_y": 46.0
+          },
+          {
+            "action": 4,
+            "meaning": "RIGHTFIRE",
+            "player_y": 57.5,
+            "delta_y": -46.0
+          },
+          {
+            "action": 5,
+            "meaning": "LEFTFIRE",
+            "player_y": 149.5,
+            "delta_y": 46.0
+          }
+        ],
+        "probe_steps": 12,
+        "delta_per_step_by_action": {
+          "0": 0.0,
+          "1": 0.0,
+          "2": -3.8333333333333335,
+          "3": 3.8333333333333335,
+          "4": -3.8333333333333335,
+          "5": 3.8333333333333335
+        },
+        "action_map": {
+          "noop": 0,
+          "move_up": 2,
+          "move_down": 3,
+          "fire": 1
+        }
+      },
+      "action_counts": {
+        "fire": 57,
+        "move_down": 86,
+        "move_up": 85,
+        "noop": 72
+      },
+      "reset_info": {
+        "lives": 0,
+        "episode_frame_number": 0,
+        "frame_number": 0,
+        "seeds": [
+          2968811710,
+          3677149159
+        ]
+      },
+      "final_objects": {
+        "ball": {
+          "n": 8,
+          "bbox": [
+            74,
+            62,
+            75,
+            65
+          ],
+          "center": [
+            74.5,
+            63.5
+          ],
+          "color": [
+            236,
+            236,
+            236
+          ]
+        },
+        "player": {
+          "n": 64,
+          "bbox": [
+            140,
+            112,
+            143,
+            127
+          ],
+          "center": [
+            141.5,
+            119.5
+          ],
+          "color": [
+            92,
+            186,
+            92
+          ]
+        },
+        "opponent": {
+          "n": 64,
+          "bbox": [
+            16,
+            61,
+            19,
+            76
+          ],
+          "center": [
+            17.5,
+            68.5
+          ],
+          "color": [
+            213,
+            130,
+            74
+          ]
+        },
+        "ball_dx": -1.0,
+        "ball_dy": -1.0,
+        "bg_color": [
+          144,
+          72,
+          17
+        ],
+        "components": [
+          {
+            "n": 64,
+            "bbox": [
+              140,
+              112,
+              143,
+              127
+            ],
+            "center": [
+              141.5,
+              119.5
+            ],
+            "color": [
+              92,
+              186,
+              92
+            ]
+          },
+          {
+            "n": 64,
+            "bbox": [
+              16,
+              61,
+              19,
+              76
+            ],
+            "center": [
+              17.5,
+              68.5
+            ],
+            "color": [
+              213,
+              130,
+              74
+            ]
+          },
+          {
+            "n": 8,
+            "bbox": [
+              74,
+              62,
+              75,
+              65
+            ],
+            "center": [
+              74.5,
+              63.5
+            ],
+            "color": [
+              236,
+              236,
+              236
+            ]
+          }
+        ]
+      },
+      "plan_records": [
+        {
+          "step": 0,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.618250011466444,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 1,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.865041016601026,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.988166983239353,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.00733301974833,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.935542019084096,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 5,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.0849580578506,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 6,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.554874976165593,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 7,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.22620791103691,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 8,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.142875029705465,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 9,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.94549995288253,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 10,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.707457977347076,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 11,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.99387505929917,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 12,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.89337499253452,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 13,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.749249913729727,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 14,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.81287496164441,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 15,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.061208051629364,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 16,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.128416013903916,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 17,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.344499964267015,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 18,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.097082946449518,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 19,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.993540947325528,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 20,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.433041965588927,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 21,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.255499985069036,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 22,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 20.505249965935946,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        },
+        {
+          "step": 23,
+          "selected_action": "fire",
+          "selected_chain": [
+            "move_down",
+            "move_down",
+            "noop"
+          ],
+          "score": -16.6025,
+          "reward": 0.0,
+          "catch_distance": null,
+          "intercept_y": null,
+          "estimated_player_y": 111.16666666666666,
+          "urgency": 0.0,
+          "candidate_count": 27,
+          "planning_ms": 19.872166914865375,
+          "top": [
+            {
+              "rank": 1,
+              "labels": [
+                "move_down",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.6025,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 111.16666666666666,
+              "terminal": false
+            },
+            {
+              "rank": 2,
+              "labels": [
+                "move_up",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.632499999999997,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 118.83333333333331,
+              "terminal": false
+            },
+            {
+              "rank": 3,
+              "labels": [
+                "move_down",
+                "noop",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 4,
+              "labels": [
+                "noop",
+                "move_down",
+                "noop"
+              ],
+              "score": -16.66,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 107.33333333333333,
+              "terminal": false
+            },
+            {
+              "rank": 5,
+              "labels": [
+                "noop",
+                "move_up",
+                "move_down"
+              ],
+              "score": -16.689999999999998,
+              "reward": 0.0,
+              "catch_distance": null,
+              "intercept_y": null,
+              "estimated_player_y": 122.66666666666664,
+              "terminal": false
+            }
+          ]
+        }
+      ],
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/atari_pong_causal_tree/videos/atari_pong_causal_tree_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/atari_pong_causal_tree/videos/atari_pong_causal_tree_seed0.gif"
+    }
+  ],
+  "score": 0.0,
+  "steps": 300.0,
+  "mean_planning_ms": 22.465469138308737,
+  "candidate_count": 27,
+  "horizon": 3,
+  "eval_tail": 5,
+  "videos": [
+    {
+      "mp4": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/atari_pong_causal_tree/videos/atari_pong_causal_tree_seed0.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/atari_pong_causal_tree/videos/atari_pong_causal_tree_seed0.gif"
+    }
+  ],
+  "args": {
+    "out_dir": "meadow/gamml_gym_v1/atari_pong_causal_tree",
+    "episodes": 1,
+    "seeds": "0",
+    "max_steps": 300,
+    "horizon": 3,
+    "eval_tail": 5,
+    "max_candidates": 27,
+    "fps": 30,
+    "warmup_fire_steps": 3,
+    "keep_plan_records": 24
+  },
+  "elapsed_sec": 26.835924863815308
+}

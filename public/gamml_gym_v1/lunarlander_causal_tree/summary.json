@@ -1,0 +1,150 @@
+{
+  "claim_label": "lunarlander_causal_tree_think_teacher_v1",
+  "started_at": "2026-04-29T02:26:52+0800",
+  "python_executable": "/Users/akaihuangm1/Desktop/github/GamML_torch/.venv_gymtest/bin/python",
+  "env_resolution": {
+    "requested_order": [
+      "LunarLander-v3",
+      "LunarLander-v2"
+    ],
+    "selected_env_id": "LunarLander-v3",
+    "checks": [
+      {
+        "env_id": "LunarLander-v3",
+        "ok": true,
+        "obs_shape": [
+          8
+        ],
+        "action_space": "Discrete(4)",
+        "frame_shape": [
+          400,
+          600,
+          3
+        ],
+        "step_tuple_len": 5,
+        "spec_id": "LunarLander-v3"
+      },
+      {
+        "env_id": "LunarLander-v2",
+        "ok": false,
+        "error_type": "DeprecatedEnv",
+        "error": "Environment version v2 for `LunarLander` is deprecated. Please use `LunarLander-v3` instead."
+      }
+    ],
+    "fixed_env_id_for_this_run": "LunarLander-v3"
+  },
+  "teacher": {
+    "type": "state-based causal-tree Think teacher",
+    "candidate_primitives": [
+      "main_engine/descent",
+      "left_attitude_correction",
+      "right_attitude_correction",
+      "coast",
+      "brake",
+      "stabilize/contact"
+    ],
+    "action_names": {
+      "0": "coast",
+      "1": "left_attitude_engine",
+      "2": "main_engine",
+      "3": "right_attitude_engine"
+    },
+    "candidate_count": 6,
+    "notes": [
+      "Each step scores explicit primitive chains, then executes the first action of the selected chain.",
+      "Projection is a lightweight normalized-state model for candidate ranking and overlay, not a Box2D clone."
+    ]
+  },
+  "episodes": [
+    {
+      "env_id": "LunarLander-v3",
+      "seed": 20260429,
+      "episode_index": 0,
+      "return": 235.5036627136328,
+      "steps": 225,
+      "terminated": true,
+      "truncated": false,
+      "single_episode_success_return_ge_200": true,
+      "partial_result": false,
+      "final_awake": false,
+      "final_obs": [
+        -0.1726844757795334,
+        -0.00394609197974205,
+        0.0,
+        0.0,
+        0.026383519172668457,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "max_stable_contact_steps": 3,
+      "mean_planning_ms": 0.2818231476056907,
+      "candidate_count": 6,
+      "selected_primitive_counts": {
+        "left_attitude_correction": 2,
+        "stabilize/contact": 97,
+        "coast": 44,
+        "brake": 65,
+        "right_attitude_correction": 8,
+        "main_engine/descent": 9
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/videos/lunarlander_causal_tree_seed20260429.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/videos/lunarlander_causal_tree_seed20260429.gif",
+      "sample_decisions_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/lunarlander_seed20260429_decisions.json"
+    },
+    {
+      "env_id": "LunarLander-v3",
+      "seed": 20260430,
+      "episode_index": 1,
+      "return": 232.4432915437223,
+      "steps": 447,
+      "terminated": true,
+      "truncated": false,
+      "single_episode_success_return_ge_200": true,
+      "partial_result": false,
+      "final_awake": false,
+      "final_obs": [
+        -0.053664494305849075,
+        0.0002126908366335556,
+        0.0,
+        0.0,
+        -0.011983308009803295,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "max_stable_contact_steps": 72,
+      "mean_planning_ms": 0.3029400546841273,
+      "candidate_count": 6,
+      "selected_primitive_counts": {
+        "left_attitude_correction": 10,
+        "coast": 85,
+        "right_attitude_correction": 9,
+        "brake": 97,
+        "stabilize/contact": 176,
+        "main_engine/descent": 70
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/videos/lunarlander_causal_tree_seed20260430.mp4",
+      "gif": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/videos/lunarlander_causal_tree_seed20260430.gif",
+      "sample_decisions_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/lunarlander_seed20260430_decisions.json"
+    }
+  ],
+  "episode_count": 2,
+  "success_count_return_ge_200": 2,
+  "mean_return": 233.97347712867753,
+  "mean_steps": 336.0,
+  "mean_planning_ms": 0.292381601144909,
+  "selected_primitive_counts": {
+    "left_attitude_correction": 12,
+    "stabilize/contact": 273,
+    "coast": 129,
+    "brake": 162,
+    "right_attitude_correction": 17,
+    "main_engine/descent": 79
+  },
+  "partial_result": false,
+  "result_label": "successful_landing_demos",
+  "honest_claim": "Two recorded single-episode landing demos; this is not a 100-episode solved benchmark.",
+  "artifacts_dir": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree",
+  "videos_dir": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/lunarlander_causal_tree/videos"
+}

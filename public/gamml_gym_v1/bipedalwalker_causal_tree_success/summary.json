@@ -1,0 +1,4615 @@
+{
+  "env_id": "BipedalWalker-v3",
+  "claim_label": "causal_tree_success_gait_prior",
+  "started_at": "2026-04-28T18:11:19+0800",
+  "teacher": "Explicit causal tree over gait strategies with Gymnasium BipedalWalkerHeuristics as the successful gait prior/safety baseline.",
+  "candidate_strategies": [
+    "stay_on_one_leg",
+    "put_other_down",
+    "push_off",
+    "recover_forward",
+    "recover_back",
+    "conservative_step"
+  ],
+  "candidate_score_fields": [
+    "predicted_progress",
+    "fall_risk",
+    "contact_consistency",
+    "energy_cost",
+    "phase_match"
+  ],
+  "success_definition": "episode return >= 300.0",
+  "episodes": 4,
+  "success_count": 4,
+  "mean_return": 310.3537454820471,
+  "min_return": 307.6138476836495,
+  "mean_steps": 1600.0,
+  "mean_max_x": 87.76021194458008,
+  "episode_results": [
+    {
+      "seed": 8,
+      "return": 310.7613935722038,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 87.92372131347656,
+      "selected_candidate_counts": {
+        "conservative_step": 1,
+        "stay_on_one_leg": 1356,
+        "put_other_down": 216,
+        "push_off": 27
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed8.mp4",
+      "trace_sample": [
+        {
+          "step": 0,
+          "reward": -0.07886294275522232,
+          "total": -0.07886294275522232,
+          "phase": "conservative_step",
+          "contact": "LR",
+          "selected": {
+            "name": "conservative_step",
+            "action": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "score": 7.9656732230498735,
+            "predicted_progress": 0.12038831745430917,
+            "fall_risk": 0.003556325092223065,
+            "contact_consistency": 0.85,
+            "energy_cost": 0.0,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.12",
+              "fall_risk=0.00",
+              "contact_consistency=0.85",
+              "energy_cost=0.00",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 7.9656732230498735,
+              "predicted_progress": 0.12038831745430917,
+              "fall_risk": 0.003556325092223065,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.0,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.00",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 4.405826983103092,
+              "predicted_progress": 0.23994873651459903,
+              "fall_risk": 0.003556325092223065,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.0,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.00",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 3.1767501030764826,
+              "predicted_progress": 0.1801685269844541,
+              "fall_risk": 0.003556325092223065,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.18",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 2.485673223049874,
+              "predicted_progress": 0.12038831745430917,
+              "fall_risk": 0.003556325092223065,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_forward",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 1.2227501963521636,
+              "predicted_progress": 0.050644739669140085,
+              "fall_risk": 0.003556325092223065,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.0,
+              "phase_match": 0.2,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.00",
+                "phase_match=0.20"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1,
+          "reward": -0.07413171231746674,
+          "total": -0.15299465507268906,
+          "phase": "stay_on_one_leg",
+          "contact": "LR",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.2887708246707916,
+              -1.0,
+              -0.002359067788347602,
+              -0.01294487714767456
+            ],
+            "score": 9.414892562758919,
+            "predicted_progress": 0.24197383479798965,
+            "fall_risk": 0.0036180035848205577,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.2708904445171356,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.24",
+              "fall_risk=0.00",
+              "contact_consistency=0.95",
+              "energy_cost=0.27",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.2887708246707916,
+                -1.0,
+                -0.002359067788347602,
+                -0.01294487714767456
+              ],
+              "score": 9.414892562758919,
+              "predicted_progress": 0.24197383479798965,
+              "fall_risk": 0.0036180035848205577,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.2708904445171356,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.27",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.2887708246707916,
+                -1.0,
+                -0.002359067788347602,
+                -0.01294487714767456
+              ],
+              "score": 4.249478366439041,
+              "predicted_progress": 0.2221133118646853,
+              "fall_risk": 0.0036180035848205577,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.2708904445171356,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.27",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.12994687259197235,
+                0.44999998807907104,
+                -0.0010615804931148887,
+                0.44999998807907104
+              ],
+              "score": 3.087072602134837,
+              "predicted_progress": 0.044962990015261,
+              "fall_risk": 0.0036180035848205577,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10547181963920593,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.11",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.2887708246707916,
+                -1.0,
+                -0.002359067788347602,
+                -0.01294487714767456
+              ],
+              "score": 2.3309931885197717,
+              "predicted_progress": 0.10295017426485947,
+              "fall_risk": 0.0036180035848205577,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.2708904445171356,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.27",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7771257758140564,
+                0.75,
+                -0.7771257758140564,
+                0.75
+              ],
+              "score": 2.0903045816517665,
+              "predicted_progress": 0.0560473020520804,
+              "fall_risk": 0.0036180035848205577,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5832122564315796,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.06",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "reward": -0.08479466289281845,
+          "total": -0.2377893179655075,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.17378011345863342,
+              -0.8744437098503113,
+              -0.01373356580734253,
+              0.22514460980892181
+            ],
+            "score": 7.468903055377906,
+            "predicted_progress": 0.22616317249406817,
+            "fall_risk": 0.13126875664109672,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.21143250167369843,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.13",
+              "contact_consistency=0.25",
+              "energy_cost=0.21",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.17378011345863342,
+                -0.8744437098503113,
+                -0.01373356580734253,
+                0.22514460980892181
+              ],
+              "score": 7.468903055377906,
+              "predicted_progress": 0.22616317249406817,
+              "fall_risk": 0.13126875664109672,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.21143250167369843,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.13",
+                "contact_consistency=0.25",
+                "energy_cost=0.21",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0782010480761528,
+                0.44999998807907104,
+                -0.006180104333907366,
+                0.44999998807907104
+              ],
+              "score": 1.816300729939358,
+              "predicted_progress": 0.03683089646503745,
+              "fall_risk": 0.13126875664109672,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10278838872909546,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.13",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.17378011345863342,
+                -0.8744437098503113,
+                -0.01373356580734253,
+                0.22514460980892181
+              ],
+              "score": 1.7995828159532006,
+              "predicted_progress": 0.08822978215485254,
+              "fall_risk": 0.13126875664109672,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.21143250167369843,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.13",
+                "contact_consistency=0.15",
+                "energy_cost=0.21",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7779949307441711,
+                0.75,
+                -0.7779949307441711,
+                0.75
+              ],
+              "score": 1.3781666948486941,
+              "predicted_progress": 0.05021086419332798,
+              "fall_risk": 0.13126875664109672,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.583888053894043,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.13",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.17378011345863342,
+                -0.8744437098503113,
+                -0.01373356580734253,
+                0.22514460980892181
+              ],
+              "score": 1.2161430211743767,
+              "predicted_progress": 0.20645840244560876,
+              "fall_risk": 0.13126875664109672,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.21143250167369843,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.13",
+                "contact_consistency=0.20",
+                "energy_cost=0.21",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "reward": -0.08952467888593674,
+          "total": -0.32731399685144424,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.12194833904504776,
+              -0.5726235508918762,
+              -0.021064959466457367,
+              0.12578001618385315
+            ],
+            "score": 9.392838617045918,
+            "predicted_progress": 0.23349629595784976,
+            "fall_risk": 0.0181851128832652,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.08975836634635925,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.02",
+              "contact_consistency=0.95",
+              "energy_cost=0.09",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.12194833904504776,
+                -0.5726235508918762,
+                -0.021064959466457367,
+                0.12578001618385315
+              ],
+              "score": 9.392838617045918,
+              "predicted_progress": 0.23349629595784976,
+              "fall_risk": 0.0181851128832652,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.08975836634635925,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.12194833904504776,
+                -0.5726235508918762,
+                -0.021064959466457367,
+                0.12578001618385315
+              ],
+              "score": 4.228998764116803,
+              "predicted_progress": 0.2140106166890128,
+              "fall_risk": 0.0181851128832652,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.08975836634635925,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.02",
+                "contact_consistency=0.90",
+                "energy_cost=0.09",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.12194833904504776,
+                -0.5726235508918762,
+                -0.021064959466457367,
+                0.12578001618385315
+              ],
+              "score": 3.949959646542112,
+              "predicted_progress": 0.09709654107599094,
+              "fall_risk": 0.0181851128832652,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.08975836634635925,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.05487675219774246,
+                0.44999998807907104,
+                -0.00947923120111227,
+                0.44999998807907104
+              ],
+              "score": 2.1585627618642276,
+              "predicted_progress": 0.03573539874338106,
+              "fall_risk": 0.0181851128832652,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10202532261610031,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.02",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7751721739768982,
+                0.75,
+                -0.7751721739768982,
+                0.75
+              ],
+              "score": 2.023174698414498,
+              "predicted_progress": 0.04966709256385447,
+              "fall_risk": 0.0181851128832652,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5816959142684937,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.02",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "reward": -0.08642163127660751,
+          "total": -0.41373562812805176,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.0669161006808281,
+              -0.2799347937107086,
+              -0.029209569096565247,
+              0.31845489144325256
+            ],
+            "score": 7.480777376473486,
+            "predicted_progress": 0.22738619780864017,
+            "fall_risk": 0.14655769900911614,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.046276990324258804,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.15",
+              "contact_consistency=0.25",
+              "energy_cost=0.05",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.0669161006808281,
+                -0.2799347937107086,
+                -0.029209569096565247,
+                0.31845489144325256
+              ],
+              "score": 7.480777376473486,
+              "predicted_progress": 0.22738619780864017,
+              "fall_risk": 0.14655769900911614,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.046276990324258804,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.15",
+                "contact_consistency=0.25",
+                "energy_cost=0.05",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.0669161006808281,
+                -0.2799347937107086,
+                -0.029209569096565247,
+                0.31845489144325256
+              ],
+              "score": 1.826217398942053,
+              "predicted_progress": 0.09296715553925133,
+              "fall_risk": 0.14655769900911614,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.046276990324258804,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.15",
+                "contact_consistency=0.15",
+                "energy_cost=0.05",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.030112244188785553,
+                0.44999998807907104,
+                -0.013144305907189846,
+                0.44999998807907104
+              ],
+              "score": 1.748770379106303,
+              "predicted_progress": 0.030854261642940417,
+              "fall_risk": 0.14655769900911614,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.101519875228405,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.03",
+                "fall_risk=0.15",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7709086537361145,
+                0.75,
+                -0.7709086537361145,
+                0.75
+              ],
+              "score": 1.3159046954549611,
+              "predicted_progress": 0.04518720840742325,
+              "fall_risk": 0.14655769900911614,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5784000754356384,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.15",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.0669161006808281,
+                -0.2799347937107086,
+                -0.029209569096565247,
+                0.31845489144325256
+              ],
+              "score": 1.2301259511118525,
+              "predicted_progress": 0.20818347748444174,
+              "fall_risk": 0.14655769900911614,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.046276990324258804,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.15",
+                "contact_consistency=0.20",
+                "energy_cost=0.05",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 400,
+          "reward": 0.09724317491054535,
+          "total": 67.9716863213107,
+          "phase": "stay_on_one_leg",
+          "contact": "LR",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              -0.03786143660545349,
+              0.47507020831108093,
+              0.06496571004390717,
+              1.0
+            ],
+            "score": 9.951974409026663,
+            "predicted_progress": 0.40928706366099427,
+            "fall_risk": 0.058814401926346876,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.3078364431858063,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.41",
+              "fall_risk=0.06",
+              "contact_consistency=0.95",
+              "energy_cost=0.31",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                -0.03786143660545349,
+                0.47507020831108093,
+                0.06496571004390717,
+                1.0
+              ],
+              "score": 9.951974409026663,
+              "predicted_progress": 0.40928706366099427,
+              "fall_risk": 0.058814401926346876,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.3078364431858063,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.41",
+                "fall_risk=0.06",
+                "contact_consistency=0.95",
+                "energy_cost=0.31",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                -0.03786143660545349,
+                0.47507020831108093,
+                0.06496571004390717,
+                1.0
+              ],
+              "score": 4.794045172853034,
+              "predicted_progress": 0.3912086740958443,
+              "fall_risk": 0.058814401926346876,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.3078364431858063,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.39",
+                "fall_risk=0.06",
+                "contact_consistency=0.90",
+                "energy_cost=0.31",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                -0.0170376468449831,
+                0.44999998807907104,
+                0.029234569519758224,
+                0.44999998807907104
+              ],
+              "score": 3.677693717801578,
+              "predicted_progress": 0.22210355046933178,
+              "fall_risk": 0.058814401926346876,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10153622925281525,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.06",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                -0.03786143660545349,
+                0.47507020831108093,
+                0.06496571004390717,
+                1.0
+              ],
+              "score": 2.920469755811255,
+              "predicted_progress": 0.28273833670494464,
+              "fall_risk": 0.058814401926346876,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.3078364431858063,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.28",
+                "fall_risk=0.06",
+                "contact_consistency=0.75",
+                "energy_cost=0.31",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.8044485449790955,
+                0.75,
+                -0.8044485449790955,
+                0.75
+              ],
+              "score": 2.695543549874399,
+              "predicted_progress": 0.2384927347122368,
+              "fall_risk": 0.058814401926346876,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.6048187017440796,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.06",
+                "contact_consistency=0.70",
+                "energy_cost=0.60",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 800,
+          "reward": 0.22797682881355286,
+          "total": 148.7399619994685,
+          "phase": "stay_on_one_leg",
+          "contact": "L",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              -0.019176583737134933,
+              0.3451476991176605,
+              -0.018362674862146378,
+              -0.02014913037419319
+            ],
+            "score": 10.31581746746657,
+            "predicted_progress": 0.4466044789072937,
+            "fall_risk": 0.014608394721466482,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.030059462413191795,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.45",
+              "fall_risk=0.01",
+              "contact_consistency=0.95",
+              "energy_cost=0.03",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                -0.019176583737134933,
+                0.3451476991176605,
+                -0.018362674862146378,
+                -0.02014913037419319
+              ],
+              "score": 10.31581746746657,
+              "predicted_progress": 0.4466044789072937,
+              "fall_risk": 0.014608394721466482,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.030059462413191795,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.45",
+                "fall_risk=0.01",
+                "contact_consistency=0.95",
+                "energy_cost=0.03",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                -0.019176583737134933,
+                0.3451476991176605,
+                -0.018362674862146378,
+                -0.02014913037419319
+              ],
+              "score": 5.152065067306734,
+              "predicted_progress": 0.42713962172638037,
+              "fall_risk": 0.014608394721466482,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.030059462413191795,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.43",
+                "fall_risk=0.01",
+                "contact_consistency=0.90",
+                "energy_cost=0.03",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                -0.019176583737134933,
+                0.3451476991176605,
+                -0.018362674862146378,
+                -0.02014913037419319
+              ],
+              "score": 4.873550666347719,
+              "predicted_progress": 0.31035047864090065,
+              "fall_risk": 0.014608394721466482,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.030059462413191795,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.31",
+                "fall_risk=0.01",
+                "contact_consistency=0.95",
+                "energy_cost=0.03",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                -0.00862946268171072,
+                0.44999998807907104,
+                -0.00826320331543684,
+                0.44999998807907104
+              ],
+              "score": 3.0357492690860033,
+              "predicted_progress": 0.24215201872491907,
+              "fall_risk": 0.014608394721466482,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10128568112850189,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.01",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7736974954605103,
+                0.75,
+                -0.7736974954605103,
+                0.75
+              ],
+              "score": 2.9095172024445057,
+              "predicted_progress": 0.25823497010642654,
+              "fall_risk": 0.014608394721466482,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5805538892745972,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.26",
+                "fall_risk=0.01",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1200,
+          "reward": 0.0667094886302948,
+          "total": 231.58337438013405,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.07261710613965988,
+              -0.30647072196006775,
+              -0.04962056130170822,
+              0.5170983076095581
+            ],
+            "score": 9.747092029961873,
+            "predicted_progress": 0.3367344995671328,
+            "fall_risk": 0.04625503114904418,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.09226260334253311,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.34",
+              "fall_risk=0.05",
+              "contact_consistency=0.95",
+              "energy_cost=0.09",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.07261710613965988,
+                -0.30647072196006775,
+                -0.04962056130170822,
+                0.5170983076095581
+              ],
+              "score": 9.747092029961873,
+              "predicted_progress": 0.3367344995671328,
+              "fall_risk": 0.04625503114904418,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.09226260334253311,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.34",
+                "fall_risk=0.05",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.07261710613965988,
+                -0.30647072196006775,
+                -0.04962056130170822,
+                0.5170983076095581
+              ],
+              "score": 4.588454831156065,
+              "predicted_progress": 0.31848754747051156,
+              "fall_risk": 0.04625503114904418,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.09226260334253311,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.32",
+                "fall_risk=0.05",
+                "contact_consistency=0.90",
+                "energy_cost=0.09",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.07261710613965988,
+                -0.30647072196006775,
+                -0.04962056130170822,
+                0.5170983076095581
+              ],
+              "score": 4.34063163832121,
+              "predicted_progress": 0.20900583489078436,
+              "fall_risk": 0.04625503114904418,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.09226260334253311,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.05",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.03267769515514374,
+                0.44999998807907104,
+                -0.02232925221323967,
+                0.44999998807907104
+              ],
+              "score": 2.5830622489415234,
+              "predicted_progress": 0.15549257494474583,
+              "fall_risk": 0.04625503114904418,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10164159536361694,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.16",
+                "fall_risk=0.05",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7531943917274475,
+                0.75,
+                -0.7531943917274475,
+                0.75
+              ],
+              "score": 2.4422474643939704,
+              "predicted_progress": 0.16695995574732395,
+              "fall_risk": 0.04625503114904418,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5649008750915527,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.17",
+                "fall_risk=0.05",
+                "contact_consistency=0.70",
+                "energy_cost=0.56",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "return": 307.6138476836495,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 87.12800598144531,
+      "selected_candidate_counts": {
+        "conservative_step": 1,
+        "stay_on_one_leg": 1359,
+        "put_other_down": 213,
+        "push_off": 27
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed10.mp4",
+      "trace_sample": [
+        {
+          "step": 0,
+          "reward": -0.08108704537153244,
+          "total": -0.08108704537153244,
+          "phase": "conservative_step",
+          "contact": "LR",
+          "selected": {
+            "name": "conservative_step",
+            "action": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "score": 7.958715051889844,
+            "predicted_progress": 0.1187304442141297,
+            "fall_risk": 0.0035545763605355873,
+            "contact_consistency": 0.85,
+            "energy_cost": 0.0,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.12",
+              "fall_risk=0.00",
+              "contact_consistency=0.85",
+              "energy_cost=0.00",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 7.958715051889844,
+              "predicted_progress": 0.1187304442141297,
+              "fall_risk": 0.0035545763605355873,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.0,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.00",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 4.3988699176613775,
+              "predicted_progress": 0.23829112654068493,
+              "fall_risk": 0.0035545763605355873,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.0,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.00",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 3.1697924847756114,
+              "predicted_progress": 0.17851078537740733,
+              "fall_risk": 0.0035545763605355873,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.18",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 2.4787150518898455,
+              "predicted_progress": 0.1187304442141297,
+              "fall_risk": 0.0035545763605355873,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_forward",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 1.215791380189785,
+              "predicted_progress": 0.048986712856972474,
+              "fall_risk": 0.0035545763605355873,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.0,
+              "phase_match": 0.2,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.00",
+                "phase_match=0.20"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1,
+          "reward": -0.07576319575309753,
+          "total": -0.15685024112462997,
+          "phase": "stay_on_one_leg",
+          "contact": "LR",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.2875741124153137,
+              -1.0,
+              -0.0023469000589102507,
+              -0.010193516500294209
+            ],
+            "score": 9.407307792414802,
+            "predicted_progress": 0.2401707463975701,
+            "fall_risk": 0.003642401158498984,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.270702064037323,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.24",
+              "fall_risk=0.00",
+              "contact_consistency=0.95",
+              "energy_cost=0.27",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.2875741124153137,
+                -1.0,
+                -0.0023469000589102507,
+                -0.010193516500294209
+              ],
+              "score": 9.407307792414802,
+              "predicted_progress": 0.2401707463975701,
+              "fall_risk": 0.003642401158498984,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.270702064037323,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.27",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.2875741124153137,
+                -1.0,
+                -0.0023469000589102507,
+                -0.010193516500294209
+              ],
+              "score": 4.241894956533687,
+              "predicted_progress": 0.22031054737825723,
+              "fall_risk": 0.003642401158498984,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.270702064037323,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.27",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.1294083446264267,
+                0.44999998807907104,
+                -0.0010561050148680806,
+                0.44999998807907104
+              ],
+              "score": 3.0799381815098945,
+              "predicted_progress": 0.043278089671250096,
+              "fall_risk": 0.003642401158498984,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10543690621852875,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.11",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.2875741124153137,
+                -1.0,
+                -0.0023469000589102507,
+                -0.010193516500294209
+              ],
+              "score": 2.3234179412470026,
+              "predicted_progress": 0.1011493532623801,
+              "fall_risk": 0.003642401158498984,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.270702064037323,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.27",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7771108746528625,
+                0.75,
+                -0.7771108746528625,
+                0.75
+              ],
+              "score": 2.083269622745857,
+              "predicted_progress": 0.05438775093542921,
+              "fall_risk": 0.003642401158498984,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5832006931304932,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "reward": -0.0863620787858963,
+          "total": -0.24321231991052628,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.17298996448516846,
+              -0.8723692893981934,
+              -0.013646856881678104,
+              0.22181375324726105
+            ],
+            "score": 7.463321163360041,
+            "predicted_progress": 0.22472190651902912,
+            "fall_risk": 0.13124473010778148,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.21008533239364624,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.22",
+              "fall_risk=0.13",
+              "contact_consistency=0.25",
+              "energy_cost=0.21",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.17298996448516846,
+                -0.8723692893981934,
+                -0.013646856881678104,
+                0.22181375324726105
+              ],
+              "score": 7.463321163360041,
+              "predicted_progress": 0.22472190651902912,
+              "fall_risk": 0.13124473010778148,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.21008533239364624,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.13",
+                "contact_consistency=0.25",
+                "energy_cost=0.21",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0778454840183258,
+                0.44999998807907104,
+                -0.006141085643321276,
+                0.44999998807907104
+              ],
+              "score": 1.809709674390455,
+              "predicted_progress": 0.03524458039377698,
+              "fall_risk": 0.13124473010778148,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10277439653873444,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.13",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.17298996448516846,
+                -0.8723692893981934,
+                -0.013646856881678104,
+                0.22181375324726105
+              ],
+              "score": 1.7939732648618627,
+              "predicted_progress": 0.08678193068612972,
+              "fall_risk": 0.13124473010778148,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.21008533239364624,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.13",
+                "contact_consistency=0.15",
+                "energy_cost=0.21",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7779812812805176,
+                0.75,
+                -0.7779812812805176,
+                0.75
+              ],
+              "score": 1.3716533022289494,
+              "predicted_progress": 0.04864328090736171,
+              "fall_risk": 0.13124473010778148,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.583877444267273,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.13",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.17298996448516846,
+                -0.8723692893981934,
+                -0.013646856881678104,
+                0.22181375324726105
+              ],
+              "score": 1.2105571778603006,
+              "predicted_progress": 0.20501619568575777,
+              "fall_risk": 0.13124473010778148,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.21008533239364624,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.13",
+                "contact_consistency=0.20",
+                "energy_cost=0.21",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "reward": -0.09116161614656448,
+          "total": -0.33437393605709076,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.12112893164157867,
+              -0.5697644352912903,
+              -0.02094600722193718,
+              0.1278439164161682
+            ],
+            "score": 9.386615232678711,
+            "predicted_progress": 0.23192943786130074,
+            "fall_risk": 0.018136398188578776,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.08902163803577423,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.02",
+              "contact_consistency=0.95",
+              "energy_cost=0.09",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.12112893164157867,
+                -0.5697644352912903,
+                -0.02094600722193718,
+                0.1278439164161682
+              ],
+              "score": 9.386615232678711,
+              "predicted_progress": 0.23192943786130074,
+              "fall_risk": 0.018136398188578776,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.08902163803577423,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.12112893164157867,
+                -0.5697644352912903,
+                -0.02094600722193718,
+                0.1278439164161682
+              ],
+              "score": 4.222765489670097,
+              "predicted_progress": 0.21244140381163087,
+              "fall_risk": 0.018136398188578776,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.08902163803577423,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.02",
+                "contact_consistency=0.90",
+                "energy_cost=0.09",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.12112893164157867,
+                -0.5697644352912903,
+                -0.02094600722193718,
+                0.1278439164161682
+              ],
+              "score": 3.9436670316184146,
+              "predicted_progress": 0.09551319951361147,
+              "fall_risk": 0.018136398188578776,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.08902163803577423,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0545080192387104,
+                0.44999998807907104,
+                -0.009425703436136246,
+                0.44999998807907104
+              ],
+              "score": 2.1520290539374836,
+              "predicted_progress": 0.03414653939613046,
+              "fall_risk": 0.018136398188578776,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10201498866081238,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.03",
+                "fall_risk=0.02",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7751837968826294,
+                0.75,
+                -0.7751837968826294,
+                0.75
+              ],
+              "score": 2.016733405127659,
+              "predicted_progress": 0.04810162197810224,
+              "fall_risk": 0.018136398188578776,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5817049741744995,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.02",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "reward": -0.0879862830042839,
+          "total": -0.42236021906137466,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.06615545600652695,
+              -0.2777247428894043,
+              -0.02903885208070278,
+              0.3202269971370697
+            ],
+            "score": 7.474698416581996,
+            "predicted_progress": 0.2258660341403091,
+            "fall_risk": 0.14645418356261747,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.046224042773246765,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.15",
+              "contact_consistency=0.25",
+              "energy_cost=0.05",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.06615545600652695,
+                -0.2777247428894043,
+                -0.02903885208070278,
+                0.3202269971370697
+              ],
+              "score": 7.474698416581996,
+              "predicted_progress": 0.2258660341403091,
+              "fall_risk": 0.14645418356261747,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.046224042773246765,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.15",
+                "contact_consistency=0.25",
+                "energy_cost=0.05",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.06615545600652695,
+                -0.2777247428894043,
+                -0.02903885208070278,
+                0.3202269971370697
+              ],
+              "score": 1.8200182435425587,
+              "predicted_progress": 0.09141837389282424,
+              "fall_risk": 0.14645418356261747,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.046224042773246765,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.15",
+                "contact_consistency=0.15",
+                "energy_cost=0.05",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.029769955202937126,
+                0.44999998807907104,
+                -0.013067482970654964,
+                0.44999998807907104
+              ],
+              "score": 1.7425518052084998,
+              "predicted_progress": 0.029304236181112064,
+              "fall_risk": 0.14645418356261747,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10151424258947372,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.03",
+                "fall_risk=0.15",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7709454894065857,
+                0.75,
+                -0.7709454894065857,
+                0.75
+              ],
+              "score": 1.3097880993593807,
+              "predicted_progress": 0.043663896521444825,
+              "fall_risk": 0.14645418356261747,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5784285068511963,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.15",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.06615545600652695,
+                -0.2777247428894043,
+                -0.02903885208070278,
+                0.3202269971370697
+              ],
+              "score": 1.2240298204335045,
+              "predicted_progress": 0.20665922553352553,
+              "fall_risk": 0.14645418356261747,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.046224042773246765,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.15",
+                "contact_consistency=0.20",
+                "energy_cost=0.05",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 400,
+          "reward": 0.1540205478668213,
+          "total": 63.9383604307659,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.06456702202558517,
+              -0.02258274145424366,
+              -0.009176144376397133,
+              0.37912020087242126
+            ],
+            "score": 9.812806771241588,
+            "predicted_progress": 0.3378955402264517,
+            "fall_risk": 0.03043477028382547,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.03712380304932594,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.34",
+              "fall_risk=0.03",
+              "contact_consistency=0.95",
+              "energy_cost=0.04",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.06456702202558517,
+                -0.02258274145424366,
+                -0.009176144376397133,
+                0.37912020087242126
+              ],
+              "score": 9.812806771241588,
+              "predicted_progress": 0.3378955402264517,
+              "fall_risk": 0.03043477028382547,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.03712380304932594,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.34",
+                "fall_risk=0.03",
+                "contact_consistency=0.95",
+                "energy_cost=0.04",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.06456702202558517,
+                -0.02258274145424366,
+                -0.009176144376397133,
+                0.37912020087242126
+              ],
+              "score": 4.651705839477939,
+              "predicted_progress": 0.3190619850446305,
+              "fall_risk": 0.03043477028382547,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.03712380304932594,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.32",
+                "fall_risk=0.03",
+                "contact_consistency=0.90",
+                "energy_cost=0.04",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.06456702202558517,
+                -0.02258274145424366,
+                -0.009176144376397133,
+                0.37912020087242126
+              ],
+              "score": 4.389100248896045,
+              "predicted_progress": 0.20606065395370335,
+              "fall_risk": 0.03043477028382547,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.03712380304932594,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.03",
+                "contact_consistency=0.95",
+                "energy_cost=0.04",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0290551595389843,
+                0.44999998807907104,
+                -0.00412926496937871,
+                0.44999998807907104
+              ],
+              "score": 2.5630361027518296,
+              "predicted_progress": 0.14016501177719065,
+              "fall_risk": 0.03043477028382547,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10146529972553253,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.14",
+                "fall_risk=0.03",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7510385513305664,
+                0.75,
+                -0.7510385513305664,
+                0.75
+              ],
+              "score": 2.4276660112454245,
+              "predicted_progress": 0.15282552452906048,
+              "fall_risk": 0.03043477028382547,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5632794499397278,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.15",
+                "fall_risk=0.03",
+                "contact_consistency=0.70",
+                "energy_cost=0.56",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 800,
+          "reward": 0.16124369204044342,
+          "total": 145.7072645914741,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.1020612120628357,
+              0.3121228814125061,
+              0.9845957159996033,
+              -1.0
+            ],
+            "score": 8.271025319657973,
+            "predicted_progress": 0.41604471945338867,
+            "fall_risk": 0.09663127556721093,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.5193164348602295,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.42",
+              "fall_risk=0.10",
+              "contact_consistency=0.25",
+              "energy_cost=0.52",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.1020612120628357,
+                0.3121228814125061,
+                0.9845957159996033,
+                -1.0
+              ],
+              "score": 8.271025319657973,
+              "predicted_progress": 0.41604471945338867,
+              "fall_risk": 0.09663127556721093,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.5193164348602295,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.42",
+                "fall_risk=0.10",
+                "contact_consistency=0.25",
+                "energy_cost=0.52",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.1020612120628357,
+                0.3121228814125061,
+                0.9845957159996033,
+                -1.0
+              ],
+              "score": 4.660023308120421,
+              "predicted_progress": 0.39961566908730495,
+              "fall_risk": 0.09663127556721093,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.5193164348602295,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.40",
+                "fall_risk=0.10",
+                "contact_consistency=0.90",
+                "energy_cost=0.52",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.1020612120628357,
+                0.3121228814125061,
+                0.9845957159996033,
+                -1.0
+              ],
+              "score": 4.01801123889511,
+              "predicted_progress": 0.30104136689080224,
+              "fall_risk": 0.09663127556721093,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.5193164348602295,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.30",
+                "fall_risk=0.10",
+                "contact_consistency=0.75",
+                "energy_cost=0.52",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.04592754319310188,
+                0.44999998807907104,
+                0.4430680572986603,
+                0.44999998807907104
+              ],
+              "score": 2.7952508175651483,
+              "predicted_progress": 0.24311304364314565,
+              "fall_risk": 0.09663127556721093,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.15085464715957642,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.10",
+                "contact_consistency=0.85",
+                "energy_cost=0.15",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.8341435194015503,
+                0.75,
+                -0.8341435194015503,
+                0.75
+              ],
+              "score": 2.598190566228914,
+              "predicted_progress": 0.24226248817664287,
+              "fall_risk": 0.09663127556721093,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.6291477084159851,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.10",
+                "contact_consistency=0.70",
+                "energy_cost=0.63",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1200,
+          "reward": 0.12455807626247406,
+          "total": 233.95123939635232,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              -0.007381469011306763,
+              -0.2410813570022583,
+              -0.0667867511510849,
+              0.4473918080329895
+            ],
+            "score": 7.863500764724218,
+            "predicted_progress": 0.35008528587756743,
+            "fall_risk": 0.19183851425846415,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.06569865345954895,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.35",
+              "fall_risk=0.19",
+              "contact_consistency=0.25",
+              "energy_cost=0.07",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                -0.007381469011306763,
+                -0.2410813570022583,
+                -0.0667867511510849,
+                0.4473918080329895
+              ],
+              "score": 7.863500764724218,
+              "predicted_progress": 0.35008528587756743,
+              "fall_risk": 0.19183851425846415,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.06569865345954895,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.35",
+                "fall_risk=0.19",
+                "contact_consistency=0.25",
+                "energy_cost=0.07",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                -0.007381469011306763,
+                -0.2410813570022583,
+                -0.0667867511510849,
+                0.4473918080329895
+              ],
+              "score": 2.2671424872841484,
+              "predicted_progress": 0.22952379124897906,
+              "fall_risk": 0.19183851425846415,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.06569865345954895,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.19",
+                "contact_consistency=0.15",
+                "energy_cost=0.07",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                -0.003321660915389657,
+                0.44999998807907104,
+                -0.030054036527872086,
+                0.44999998807907104
+              ],
+              "score": 2.2343869351269,
+              "predicted_progress": 0.17666151037578515,
+              "fall_risk": 0.19183851425846415,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10147856175899506,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.18",
+                "fall_risk=0.19",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7320246696472168,
+                0.75,
+                -0.7320246696472168,
+                0.75
+              ],
+              "score": 1.7917920326625285,
+              "predicted_progress": 0.18659378138882232,
+              "fall_risk": 0.19183851425846415,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5491800308227539,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.19",
+                "fall_risk=0.19",
+                "contact_consistency=0.55",
+                "energy_cost=0.55",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                -0.007381469011306763,
+                -0.2410813570022583,
+                -0.0667867511510849,
+                0.4473918080329895
+              ],
+              "score": 1.6211638679470664,
+              "predicted_progress": 0.3328622152163405,
+              "fall_risk": 0.19183851425846415,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.06569865345954895,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.33",
+                "fall_risk=0.19",
+                "contact_consistency=0.20",
+                "energy_cost=0.07",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 18,
+      "return": 310.33190716523677,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 87.71175384521484,
+      "selected_candidate_counts": {
+        "conservative_step": 1,
+        "stay_on_one_leg": 1359,
+        "put_other_down": 215,
+        "push_off": 25
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed18.mp4",
+      "trace_sample": [
+        {
+          "step": 0,
+          "reward": -0.07968732714653015,
+          "total": -0.07968732714653015,
+          "phase": "conservative_step",
+          "contact": "LR",
+          "selected": {
+            "name": "conservative_step",
+            "action": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "score": 7.963071519412286,
+            "predicted_progress": 0.11976809781566608,
+            "fall_risk": 0.0035551755048261772,
+            "contact_consistency": 0.85,
+            "energy_cost": 0.0,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.12",
+              "fall_risk=0.00",
+              "contact_consistency=0.85",
+              "energy_cost=0.00",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 7.963071519412286,
+              "predicted_progress": 0.11976809781566608,
+              "fall_risk": 0.0035551755048261772,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.0,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.00",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 4.403225183867103,
+              "predicted_progress": 0.23932849411443222,
+              "fall_risk": 0.0035551755048261772,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.0,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.00",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 3.1741483516396927,
+              "predicted_progress": 0.17954829596504915,
+              "fall_risk": 0.0035551755048261772,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.18",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 2.483071519412284,
+              "predicted_progress": 0.11976809781566608,
+              "fall_risk": 0.0035551755048261772,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_forward",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 1.2201485484803072,
+              "predicted_progress": 0.0500245333080525,
+              "fall_risk": 0.0035551755048261772,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.0,
+              "phase_match": 0.2,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.00",
+                "phase_match=0.20"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1,
+          "reward": -0.07476873695850372,
+          "total": -0.15445606410503387,
+          "phase": "stay_on_one_leg",
+          "contact": "LR",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.2884073853492737,
+              -1.0,
+              -0.0023509515449404716,
+              -0.01218133233487606
+            ],
+            "score": 9.412114122226775,
+            "predicted_progress": 0.24131192304763208,
+            "fall_risk": 0.0036235732990097923,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.27083316445350647,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.24",
+              "fall_risk=0.00",
+              "contact_consistency=0.95",
+              "energy_cost=0.27",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.2884073853492737,
+                -1.0,
+                -0.0023509515449404716,
+                -0.01218133233487606
+              ],
+              "score": 9.412114122226775,
+              "predicted_progress": 0.24131192304763208,
+              "fall_risk": 0.0036235732990097923,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.27083316445350647,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.27",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.2884073853492737,
+                -1.0,
+                -0.0023509515449404716,
+                -0.01218133233487606
+              ],
+              "score": 4.246700079292,
+              "predicted_progress": 0.2214514366345903,
+              "fall_risk": 0.0036235732990097923,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.27083316445350647,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.27",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.12978331744670868,
+                0.44999998807907104,
+                -0.0010579281952232122,
+                0.44999998807907104
+              ],
+              "score": 3.0844198328391217,
+              "predicted_progress": 0.04433433252612658,
+              "fall_risk": 0.0036235732990097923,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10546119511127472,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.11",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.2884073853492737,
+                -1.0,
+                -0.0023509515449404716,
+                -0.01218133233487606
+              ],
+              "score": 2.3282158216833477,
+              "predicted_progress": 0.10228851815633978,
+              "fall_risk": 0.0036235732990097923,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.27083316445350647,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.27",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7771209478378296,
+                0.75,
+                -0.7771209478378296,
+                0.75
+              ],
+              "score": 2.087682538502863,
+              "predicted_progress": 0.055426446728662884,
+              "fall_risk": 0.0036235732990097923,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.583208441734314,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.06",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "reward": -0.08541018515825272,
+          "total": -0.2398662492632866,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.17352083325386047,
+              -0.8738381266593933,
+              -0.013702593743801117,
+              0.22421063482761383
+            ],
+            "score": 7.466704216484628,
+            "predicted_progress": 0.22560505495384992,
+            "fall_risk": 0.131258915579055,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.2110401690006256,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.13",
+              "contact_consistency=0.25",
+              "energy_cost=0.21",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.17352083325386047,
+                -0.8738381266593933,
+                -0.013702593743801117,
+                0.22421063482761383
+              ],
+              "score": 7.466704216484628,
+              "predicted_progress": 0.22560505495384992,
+              "fall_risk": 0.131258915579055,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.2110401690006256,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.13",
+                "contact_consistency=0.25",
+                "energy_cost=0.21",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.07808437198400497,
+                0.44999998807907104,
+                -0.006166167091578245,
+                0.44999998807907104
+              ],
+              "score": 1.8138114688363511,
+              "predicted_progress": 0.036231326184277324,
+              "fall_risk": 0.131258915579055,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10278379172086716,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.13",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.17352083325386047,
+                -0.8738381266593933,
+                -0.013702593743801117,
+                0.22421063482761383
+              ],
+              "score": 1.7973723091526845,
+              "predicted_progress": 0.08766888654148243,
+              "fall_risk": 0.131258915579055,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.2110401690006256,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.13",
+                "contact_consistency=0.15",
+                "energy_cost=0.21",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.777991771697998,
+                0.75,
+                -0.777991771697998,
+                0.75
+              ],
+              "score": 1.3757036373958906,
+              "predicted_progress": 0.04961768667817288,
+              "fall_risk": 0.131258915579055,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5838856101036072,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.13",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.17352083325386047,
+                -0.8738381266593933,
+                -0.013702593743801117,
+                0.22421063482761383
+              ],
+              "score": 1.2139425154372079,
+              "predicted_progress": 0.20589988803779746,
+              "fall_risk": 0.131258915579055,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.2110401690006256,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.13",
+                "contact_consistency=0.20",
+                "energy_cost=0.21",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "reward": -0.09016165882349014,
+          "total": -0.33002790808677673,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.12168025225400925,
+              -0.5717940330505371,
+              -0.021022655069828033,
+              0.12636667490005493
+            ],
+            "score": 9.390476322665439,
+            "predicted_progress": 0.23290562673975065,
+            "fall_risk": 0.018166048994118517,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.0895412415266037,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.02",
+              "contact_consistency=0.95",
+              "energy_cost=0.09",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.12168025225400925,
+                -0.5717940330505371,
+                -0.021022655069828033,
+                0.12636667490005493
+              ],
+              "score": 9.390476322665439,
+              "predicted_progress": 0.23290562673975065,
+              "fall_risk": 0.018166048994118517,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.0895412415266037,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.12168025225400925,
+                -0.5717940330505371,
+                -0.021022655069828033,
+                0.12636667490005493
+              ],
+              "score": 4.226632751568781,
+              "predicted_progress": 0.2134190621929271,
+              "fall_risk": 0.018166048994118517,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.0895412415266037,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.02",
+                "contact_consistency=0.90",
+                "energy_cost=0.09",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.12168025225400925,
+                -0.5717940330505371,
+                -0.021022655069828033,
+                0.12636667490005493
+              ],
+              "score": 3.9475713249888282,
+              "predicted_progress": 0.09649967491198612,
+              "fall_risk": 0.018166048994118517,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.0895412415266037,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.05475611239671707,
+                0.44999998807907104,
+                -0.00946019496768713,
+                0.44999998807907104
+              ],
+              "score": 2.1561037249526125,
+              "predicted_progress": 0.035136961828940105,
+              "fall_risk": 0.018166048994118517,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10202192515134811,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.02",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7751776576042175,
+                0.75,
+                -0.7751776576042175,
+                0.75
+              ],
+              "score": 2.0207468361466105,
+              "predicted_progress": 0.04907662739786127,
+              "fall_risk": 0.018166048994118517,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5817002058029175,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.02",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "reward": -0.08703392744064331,
+          "total": -0.41706183552742004,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.0666642040014267,
+              -0.2792978882789612,
+              -0.029150525107979774,
+              0.3189909756183624
+            ],
+            "score": 7.4784653978719176,
+            "predicted_progress": 0.22681004735689864,
+            "fall_risk": 0.14652056059411495,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.046264104545116425,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.15",
+              "contact_consistency=0.25",
+              "energy_cost=0.05",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.0666642040014267,
+                -0.2792978882789612,
+                -0.029150525107979774,
+                0.3189909756183624
+              ],
+              "score": 7.4784653978719176,
+              "predicted_progress": 0.22681004735689864,
+              "fall_risk": 0.14652056059411495,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.046264104545116425,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.15",
+                "contact_consistency=0.25",
+                "energy_cost=0.05",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.0666642040014267,
+                -0.2792978882789612,
+                -0.029150525107979774,
+                0.3189909756183624
+              ],
+              "score": 1.8238621468617382,
+              "predicted_progress": 0.09238070187828447,
+              "fall_risk": 0.14652056059411495,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.046264104545116425,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.15",
+                "contact_consistency=0.15",
+                "energy_cost=0.05",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.029998891055583954,
+                0.44999998807907104,
+                -0.013117736205458641,
+                0.44999998807907104
+              ],
+              "score": 1.746414119462443,
+              "predicted_progress": 0.030268354388236378,
+              "fall_risk": 0.14652056059411495,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10151799768209457,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.03",
+                "fall_risk=0.15",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7709230780601501,
+                0.75,
+                -0.7709230780601501,
+                0.75
+              ],
+              "score": 1.3135831744997437,
+              "predicted_progress": 0.044610502527268746,
+              "fall_risk": 0.14652056059411495,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5784112215042114,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.15",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.0666642040014267,
+                -0.2792978882789612,
+                -0.029150525107979774,
+                0.3189909756183624
+              ],
+              "score": 1.2278077905847493,
+              "predicted_progress": 0.20760585514566804,
+              "fall_risk": 0.14652056059411495,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.046264104545116425,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.15",
+                "contact_consistency=0.20",
+                "energy_cost=0.05",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 400,
+          "reward": 0.2254297286272049,
+          "total": 58.396147650666535,
+          "phase": "stay_on_one_leg",
+          "contact": "L",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              -0.0390055775642395,
+              0.29040634632110596,
+              -0.03122895210981369,
+              -0.03458726406097412
+            ],
+            "score": 10.215720193872396,
+            "predicted_progress": 0.4384523690173676,
+            "fall_risk": 0.03899199807959976,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.022007204592227936,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.44",
+              "fall_risk=0.04",
+              "contact_consistency=0.95",
+              "energy_cost=0.02",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                -0.0390055775642395,
+                0.29040634632110596,
+                -0.03122895210981369,
+                -0.03458726406097412
+              ],
+              "score": 10.215720193872396,
+              "predicted_progress": 0.4384523690173676,
+              "fall_risk": 0.03899199807959976,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.022007204592227936,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.44",
+                "fall_risk=0.04",
+                "contact_consistency=0.95",
+                "energy_cost=0.02",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                -0.0390055775642395,
+                0.29040634632110596,
+                -0.03122895210981369,
+                -0.03458726406097412
+              ],
+              "score": 5.055468326101248,
+              "predicted_progress": 0.41982097192899887,
+              "fall_risk": 0.03899199807959976,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.022007204592227936,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.42",
+                "fall_risk=0.04",
+                "contact_consistency=0.90",
+                "energy_cost=0.02",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                -0.0390055775642395,
+                0.29040634632110596,
+                -0.03122895210981369,
+                -0.03458726406097412
+              ],
+              "score": 4.797957119474355,
+              "predicted_progress": 0.30803258939878647,
+              "fall_risk": 0.03899199807959976,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.022007204592227936,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.31",
+                "fall_risk=0.04",
+                "contact_consistency=0.95",
+                "energy_cost=0.02",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                -0.017552509903907776,
+                0.44999998807907104,
+                -0.01405302807688713,
+                0.44999998807907104
+              ],
+              "score": 2.961728953082269,
+              "predicted_progress": 0.24079034834622723,
+              "fall_risk": 0.03899199807959976,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10137638449668884,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.04",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7591974139213562,
+                0.75,
+                -0.7591974139213562,
+                0.75
+              ],
+              "score": 2.8274142529511215,
+              "predicted_progress": 0.2541485611964989,
+              "fall_risk": 0.03899199807959976,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5694403648376465,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.25",
+                "fall_risk=0.04",
+                "contact_consistency=0.70",
+                "energy_cost=0.57",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 800,
+          "reward": 0.23692941665649414,
+          "total": 139.21402168739587,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.25094202160835266,
+              -0.13550949096679688,
+              0.006985364481806755,
+              1.0
+            ],
+            "score": 10.00631495668904,
+            "predicted_progress": 0.3982007532072395,
+            "fall_risk": 0.026794445277615028,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.27034586668014526,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.40",
+              "fall_risk=0.03",
+              "contact_consistency=0.95",
+              "energy_cost=0.27",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.25094202160835266,
+                -0.13550949096679688,
+                0.006985364481806755,
+                1.0
+              ],
+              "score": 10.00631495668904,
+              "predicted_progress": 0.3982007532072395,
+              "fall_risk": 0.026794445277615028,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.27034586668014526,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.40",
+                "fall_risk=0.03",
+                "contact_consistency=0.95",
+                "energy_cost=0.27",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.25094202160835266,
+                -0.13550949096679688,
+                0.006985364481806755,
+                1.0
+              ],
+              "score": 4.844607465648811,
+              "predicted_progress": 0.37922277915004193,
+              "fall_risk": 0.026794445277615028,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.27034586668014526,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.38",
+                "fall_risk=0.03",
+                "contact_consistency=0.90",
+                "energy_cost=0.27",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.25094202160835266,
+                -0.13550949096679688,
+                0.006985364481806755,
+                1.0
+              ],
+              "score": 4.578362519407432,
+              "predicted_progress": 0.2653549348068565,
+              "fall_risk": 0.026794445277615028,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.27034586668014526,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.27",
+                "fall_risk=0.03",
+                "contact_consistency=0.95",
+                "energy_cost=0.27",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.11292390525341034,
+                0.44999998807907104,
+                0.0031434139236807823,
+                0.44999998807907104
+              ],
+              "score": 2.8867988348752416,
+              "predicted_progress": 0.21503700135171264,
+              "fall_risk": 0.026794445277615028,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10444041341543198,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.03",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.8058679103851318,
+                0.75,
+                -0.8058679103851318,
+                0.75
+              ],
+              "score": 2.7452599764574277,
+              "predicted_progress": 0.22906497418944036,
+              "fall_risk": 0.026794445277615028,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.6059615612030029,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.03",
+                "contact_consistency=0.70",
+                "energy_cost=0.61",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1200,
+          "reward": 0.2984384596347809,
+          "total": 227.7612533988431,
+          "phase": "stay_on_one_leg",
+          "contact": "L",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              -0.04003966227173805,
+              0.20448605716228485,
+              -0.055726852267980576,
+              -0.012711212038993835
+            ],
+            "score": 10.090924281536958,
+            "predicted_progress": 0.4246378918164174,
+            "fall_risk": 0.06394768058928056,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.011671194806694984,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.42",
+              "fall_risk=0.06",
+              "contact_consistency=0.95",
+              "energy_cost=0.01",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                -0.04003966227173805,
+                0.20448605716228485,
+                -0.055726852267980576,
+                -0.012711212038993835
+              ],
+              "score": 10.090924281536958,
+              "predicted_progress": 0.4246378918164174,
+              "fall_risk": 0.06394768058928056,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.011671194806694984,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.42",
+                "fall_risk=0.06",
+                "contact_consistency=0.95",
+                "energy_cost=0.01",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                -0.04003966227173805,
+                0.20448605716228485,
+                -0.055726852267980576,
+                -0.012711212038993835
+              ],
+              "score": 4.935436495601557,
+              "predicted_progress": 0.407140799927036,
+              "fall_risk": 0.06394768058928056,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.011671194806694984,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.41",
+                "fall_risk=0.06",
+                "contact_consistency=0.90",
+                "energy_cost=0.01",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                -0.04003966227173805,
+                0.20448605716228485,
+                -0.055726852267980576,
+                -0.012711212038993835
+              ],
+              "score": 4.706509779989146,
+              "predicted_progress": 0.3021582485907475,
+              "fall_risk": 0.06394768058928056,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.011671194806694984,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.30",
+                "fall_risk=0.06",
+                "contact_consistency=0.95",
+                "energy_cost=0.01",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                -0.01801784709095955,
+                0.44999998807907104,
+                -0.025077082216739655,
+                0.44999998807907104
+              ],
+              "score": 2.869878708858833,
+              "predicted_progress": 0.23556636298231806,
+              "fall_risk": 0.06394768058928056,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10148836672306061,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.06",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7273523211479187,
+                0.75,
+                -0.7273523211479187,
+                0.75
+              ],
+              "score": 2.725470830676687,
+              "predicted_progress": 0.2448227494644158,
+              "fall_risk": 0.06394768058928056,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5457707047462463,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.06",
+                "contact_consistency=0.70",
+                "energy_cost=0.55",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "seed": 33,
+      "return": 312.70783350709826,
+      "steps": 1600,
+      "terminated": false,
+      "truncated": true,
+      "success": true,
+      "max_x": 88.2773666381836,
+      "selected_candidate_counts": {
+        "conservative_step": 1,
+        "stay_on_one_leg": 1360,
+        "put_other_down": 217,
+        "push_off": 22
+      },
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_causal_tree_success/videos/bipedalwalker_causal_tree_success_seed33.mp4",
+      "trace_sample": [
+        {
+          "step": 0,
+          "reward": -0.08099520206451416,
+          "total": -0.08099520206451416,
+          "phase": "conservative_step",
+          "contact": "LR",
+          "selected": {
+            "name": "conservative_step",
+            "action": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "score": 7.958982160037153,
+            "predicted_progress": 0.11879406352082744,
+            "fall_risk": 0.003554609553687003,
+            "contact_consistency": 0.85,
+            "energy_cost": 0.0,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.12",
+              "fall_risk=0.00",
+              "contact_consistency=0.85",
+              "energy_cost=0.00",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "conservative_step",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 7.958982160037153,
+              "predicted_progress": 0.11879406352082744,
+              "fall_risk": 0.003554609553687003,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.0,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.00",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 4.399136914564065,
+              "predicted_progress": 0.23835471936056865,
+              "fall_risk": 0.003554609553687003,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.0,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.00",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 3.170059537300608,
+              "predicted_progress": 0.17857439144069803,
+              "fall_risk": 0.003554609553687003,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.18",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 2.478982160037152,
+              "predicted_progress": 0.11879406352082744,
+              "fall_risk": 0.003554609553687003,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.0,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.12",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.00",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_forward",
+              "action": [
+                0.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "score": 1.216058553229786,
+              "predicted_progress": 0.049050347614311735,
+              "fall_risk": 0.003554609553687003,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.0,
+              "phase_match": 0.2,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.00",
+                "phase_match=0.20"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1,
+          "reward": -0.07570404559373856,
+          "total": -0.15669924765825272,
+          "phase": "stay_on_one_leg",
+          "contact": "LR",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.287629097700119,
+              -1.0,
+              -0.0023469836451113224,
+              -0.010324673727154732
+            ],
+            "score": 9.407604774646721,
+            "predicted_progress": 0.2402412008705555,
+            "fall_risk": 0.003641098170628708,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.27071064710617065,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.24",
+              "fall_risk=0.00",
+              "contact_consistency=0.95",
+              "energy_cost=0.27",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.287629097700119,
+                -1.0,
+                -0.0023469836451113224,
+                -0.010324673727154732
+              ],
+              "score": 9.407604774646721,
+              "predicted_progress": 0.2402412008705555,
+              "fall_risk": 0.003641098170628708,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.27071064710617065,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.27",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.287629097700119,
+                -1.0,
+                -0.0023469836451113224,
+                -0.010324673727154732
+              ],
+              "score": 4.242191844001673,
+              "predicted_progress": 0.22038097928840106,
+              "fall_risk": 0.003641098170628708,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.27071064710617065,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.27",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.12943309545516968,
+                0.44999998807907104,
+                -0.0010561426170170307,
+                0.44999998807907104
+              ],
+              "score": 3.080213599734699,
+              "predicted_progress": 0.0433429106679268,
+              "fall_risk": 0.003641098170628708,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10543850064277649,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.11",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.287629097700119,
+                -1.0,
+                -0.0023469836451113224,
+                -0.010324673727154732
+              ],
+              "score": 2.3237142601313816,
+              "predicted_progress": 0.10121964979547446,
+              "fall_risk": 0.003641098170628708,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.27071064710617065,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.00",
+                "contact_consistency=0.75",
+                "energy_cost=0.27",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7771115899085999,
+                0.75,
+                -0.7771115899085999,
+                0.75
+              ],
+              "score": 2.083540556894956,
+              "predicted_progress": 0.05445142446738368,
+              "fall_risk": 0.003641098170628708,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5832011699676514,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 2,
+          "reward": -0.08630473911762238,
+          "total": -0.2430039867758751,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.1730242818593979,
+              -0.872464656829834,
+              -0.013650339096784592,
+              0.22196951508522034
+            ],
+            "score": 7.463525267273065,
+            "predicted_progress": 0.22477546450859665,
+            "fall_risk": 0.13124554554604012,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.2101471871137619,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.22",
+              "fall_risk=0.13",
+              "contact_consistency=0.25",
+              "energy_cost=0.21",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.1730242818593979,
+                -0.872464656829834,
+                -0.013650339096784592,
+                0.22196951508522034
+              ],
+              "score": 7.463525267273065,
+              "predicted_progress": 0.22477546450859665,
+              "fall_risk": 0.13124554554604012,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.2101471871137619,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.22",
+                "fall_risk=0.13",
+                "contact_consistency=0.25",
+                "energy_cost=0.21",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.07786092162132263,
+                0.44999998807907104,
+                -0.006142652593553066,
+                0.44999998807907104
+              ],
+              "score": 1.809960261365344,
+              "predicted_progress": 0.035304831223847366,
+              "fall_risk": 0.13124554554604012,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10277500748634338,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.13",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.1730242818593979,
+                -0.872464656829834,
+                -0.013650339096784592,
+                0.22196951508522034
+              ],
+              "score": 1.7941782763599121,
+              "predicted_progress": 0.08683570476736976,
+              "fall_risk": 0.13124554554604012,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.2101471871137619,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.13",
+                "contact_consistency=0.15",
+                "energy_cost=0.21",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7779820561408997,
+                0.75,
+                -0.7779820561408997,
+                0.75
+              ],
+              "score": 1.3719006082445004,
+              "predicted_progress": 0.04870274949226873,
+              "fall_risk": 0.13124554554604012,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5838780403137207,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.13",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.1730242818593979,
+                -0.872464656829834,
+                -0.013650339096784592,
+                0.22196951508522034
+              ],
+              "score": 1.2107614114283287,
+              "predicted_progress": 0.20506978454556418,
+              "fall_risk": 0.13124554554604012,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.2101471871137619,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.13",
+                "contact_consistency=0.20",
+                "energy_cost=0.21",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 3,
+          "reward": -0.0911032110452652,
+          "total": -0.3341071978211403,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.12116462737321854,
+              -0.5698999762535095,
+              -0.020950818434357643,
+              0.12774129211902618
+            ],
+            "score": 9.386850934650756,
+            "predicted_progress": 0.23198919468243268,
+            "fall_risk": 0.018138182870956848,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.08905590325593948,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.02",
+              "contact_consistency=0.95",
+              "energy_cost=0.09",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.12116462737321854,
+                -0.5698999762535095,
+                -0.020950818434357643,
+                0.12774129211902618
+              ],
+              "score": 9.386850934650756,
+              "predicted_progress": 0.23198919468243268,
+              "fall_risk": 0.018138182870956848,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.08905590325593948,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.12116462737321854,
+                -0.5698999762535095,
+                -0.020950818434357643,
+                0.12774129211902618
+              ],
+              "score": 4.223001568403103,
+              "predicted_progress": 0.2125012503377531,
+              "fall_risk": 0.018138182870956848,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.08905590325593948,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.02",
+                "contact_consistency=0.90",
+                "energy_cost=0.09",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.12116462737321854,
+                -0.5698999762535095,
+                -0.020950818434357643,
+                0.12774129211902618
+              ],
+              "score": 3.943905370917178,
+              "predicted_progress": 0.09557358426967603,
+              "fall_risk": 0.018138182870956848,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.08905590325593948,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.10",
+                "fall_risk=0.02",
+                "contact_consistency=0.95",
+                "energy_cost=0.09",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.05452408269047737,
+                0.44999998807907104,
+                -0.009427867829799652,
+                0.44999998807907104
+              ],
+              "score": 2.152278207652931,
+              "predicted_progress": 0.03420708342864406,
+              "fall_risk": 0.018138182870956848,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.1020154356956482,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.03",
+                "fall_risk=0.02",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7751834392547607,
+                0.75,
+                -0.7751834392547607,
+                0.75
+              ],
+              "score": 2.0169786356034294,
+              "predicted_progress": 0.048161178687497905,
+              "fall_risk": 0.018138182870956848,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5817046761512756,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.05",
+                "fall_risk=0.02",
+                "contact_consistency=0.70",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 4,
+          "reward": -0.08792825043201447,
+          "total": -0.42203544825315475,
+          "phase": "stay_on_one_leg",
+          "contact": "air",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.06618819385766983,
+              -0.2778283357620239,
+              -0.029045961797237396,
+              0.3201412856578827
+            ],
+            "score": 7.474928416256174,
+            "predicted_progress": 0.22592372375323663,
+            "fall_risk": 0.14645837726866032,
+            "contact_consistency": 0.25,
+            "energy_cost": 0.0462258905172348,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.23",
+              "fall_risk=0.15",
+              "contact_consistency=0.25",
+              "energy_cost=0.05",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.06618819385766983,
+                -0.2778283357620239,
+                -0.029045961797237396,
+                0.3201412856578827
+              ],
+              "score": 7.474928416256174,
+              "predicted_progress": 0.22592372375323663,
+              "fall_risk": 0.14645837726866032,
+              "contact_consistency": 0.25,
+              "energy_cost": 0.0462258905172348,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.23",
+                "fall_risk=0.15",
+                "contact_consistency=0.25",
+                "energy_cost=0.05",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.06618819385766983,
+                -0.2778283357620239,
+                -0.029045961797237396,
+                0.3201412856578827
+              ],
+              "score": 1.8202530651728959,
+              "predicted_progress": 0.09147721159055121,
+              "fall_risk": 0.14645837726866032,
+              "contact_consistency": 0.15,
+              "energy_cost": 0.0462258905172348,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.09",
+                "fall_risk=0.15",
+                "contact_consistency=0.15",
+                "energy_cost=0.05",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.029784686863422394,
+                0.44999998807907104,
+                -0.013070682063698769,
+                0.44999998807907104
+              ],
+              "score": 1.742787079031466,
+              "predicted_progress": 0.02936306712412013,
+              "fall_risk": 0.14645837726866032,
+              "contact_consistency": 0.45,
+              "energy_cost": 0.10151448845863342,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.03",
+                "fall_risk=0.15",
+                "contact_consistency=0.45",
+                "energy_cost=0.10",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7709441781044006,
+                0.75,
+                -0.7709441781044006,
+                0.75
+              ],
+              "score": 1.310019108996834,
+              "predicted_progress": 0.04372161798556181,
+              "fall_risk": 0.14645837726866032,
+              "contact_consistency": 0.55,
+              "energy_cost": 0.5784274339675903,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.04",
+                "fall_risk=0.15",
+                "contact_consistency=0.55",
+                "energy_cost=0.58",
+                "phase_match=0.50"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.06618819385766983,
+                -0.2778283357620239,
+                -0.029045961797237396,
+                0.3201412856578827
+              ],
+              "score": 1.2242605089585636,
+              "predicted_progress": 0.20671707915856727,
+              "fall_risk": 0.14645837726866032,
+              "contact_consistency": 0.2,
+              "energy_cost": 0.0462258905172348,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.21",
+                "fall_risk=0.15",
+                "contact_consistency=0.20",
+                "energy_cost=0.05",
+                "phase_match=0.10"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 400,
+          "reward": 0.14607082307338715,
+          "total": 62.11743046808988,
+          "phase": "stay_on_one_leg",
+          "contact": "R",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.28860071301460266,
+              -0.5835376381874084,
+              -0.017336998134851456,
+              0.7450485229492188
+            ],
+            "score": 10.233416483168035,
+            "predicted_progress": 0.43469300673573674,
+            "fall_risk": 0.003162076393368118,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.2448011040687561,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.43",
+              "fall_risk=0.00",
+              "contact_consistency=0.95",
+              "energy_cost=0.24",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.28860071301460266,
+                -0.5835376381874084,
+                -0.017336998134851456,
+                0.7450485229492188
+              ],
+              "score": 10.233416483168035,
+              "predicted_progress": 0.43469300673573674,
+              "fall_risk": 0.003162076393368118,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.2448011040687561,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.43",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.24",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.28860071301460266,
+                -0.5835376381874084,
+                -0.017336998134851456,
+                0.7450485229492188
+              ],
+              "score": 5.067610545507179,
+              "predicted_progress": 0.41473921205458003,
+              "fall_risk": 0.003162076393368118,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.2448011040687561,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.41",
+                "fall_risk=0.00",
+                "contact_consistency=0.90",
+                "energy_cost=0.24",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.28860071301460266,
+                -0.5835376381874084,
+                -0.017336998134851456,
+                0.7450485229492188
+              ],
+              "score": 4.776774919542031,
+              "predicted_progress": 0.29501644396764,
+              "fall_risk": 0.003162076393368118,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.2448011040687561,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.30",
+                "fall_risk=0.00",
+                "contact_consistency=0.95",
+                "energy_cost=0.24",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.12987031042575836,
+                0.44999998807907104,
+                -0.007801649160683155,
+                0.44999998807907104
+              ],
+              "score": 3.0851078982185323,
+              "predicted_progress": 0.24657291635113723,
+              "fall_risk": 0.003162076393368118,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10548178851604462,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.25",
+                "fall_risk=0.00",
+                "contact_consistency=0.85",
+                "energy_cost=0.11",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7867737412452698,
+                0.75,
+                -0.7867737412452698,
+                0.75
+              ],
+              "score": 2.9389449327122845,
+              "predicted_progress": 0.2583394455976087,
+              "fall_risk": 0.003162076393368118,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5907564163208008,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.26",
+                "fall_risk=0.00",
+                "contact_consistency=0.70",
+                "energy_cost=0.59",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 800,
+          "reward": 0.3023551404476166,
+          "total": 148.46968956384808,
+          "phase": "stay_on_one_leg",
+          "contact": "L",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              -0.007336819544434547,
+              0.35052236914634705,
+              0.09231498092412949,
+              -0.040521975606679916
+            ],
+            "score": 10.338755536669694,
+            "predicted_progress": 0.45197442323154824,
+            "fall_risk": 0.01412705433639613,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.03327096253633499,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.45",
+              "fall_risk=0.01",
+              "contact_consistency=0.95",
+              "energy_cost=0.03",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                -0.007336819544434547,
+                0.35052236914634705,
+                0.09231498092412949,
+                -0.040521975606679916
+              ],
+              "score": 10.338755536669694,
+              "predicted_progress": 0.45197442323154824,
+              "fall_risk": 0.01412705433639613,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.03327096253633499,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.45",
+                "fall_risk=0.01",
+                "contact_consistency=0.95",
+                "energy_cost=0.03",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                -0.007336819544434547,
+                0.35052236914634705,
+                0.09231498092412949,
+                -0.040521975606679916
+              ],
+              "score": 5.174811280274592,
+              "predicted_progress": 0.43246388599461927,
+              "fall_risk": 0.01412705433639613,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.03327096253633499,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.43",
+                "fall_risk=0.01",
+                "contact_consistency=0.90",
+                "energy_cost=0.03",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                -0.007336819544434547,
+                0.35052236914634705,
+                0.09231498092412949,
+                -0.040521975606679916
+              ],
+              "score": 4.895145741903983,
+              "predicted_progress": 0.31540066257304566,
+              "fall_risk": 0.01412705433639613,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.03327096253633499,
+              "phase_match": 0.45,
+              "reasons": [
+                "predicted_progress=+0.32",
+                "fall_risk=0.01",
+                "contact_consistency=0.95",
+                "energy_cost=0.03",
+                "phase_match=0.45"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                -0.0033015687949955463,
+                0.44999998807907104,
+                0.04154174029827118,
+                0.44999998807907104
+              ],
+              "score": 3.053682414302296,
+              "predicted_progress": 0.24612938389719077,
+              "fall_risk": 0.01412705433639613,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.10168415307998657,
+              "phase_match": 0.3,
+              "reasons": [
+                "predicted_progress=+0.25",
+                "fall_risk=0.01",
+                "contact_consistency=0.85",
+                "energy_cost=0.10",
+                "phase_match=0.30"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.7973735332489014,
+                0.75,
+                -0.7973735332489014,
+                0.75
+              ],
+              "score": 2.9261234882538396,
+              "predicted_progress": 0.26319640964036045,
+              "fall_risk": 0.01412705433639613,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.5991522669792175,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.26",
+                "fall_risk=0.01",
+                "contact_consistency=0.70",
+                "energy_cost=0.60",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        },
+        {
+          "step": 1200,
+          "reward": 0.15858614444732666,
+          "total": 229.73401771578938,
+          "phase": "stay_on_one_leg",
+          "contact": "LR",
+          "selected": {
+            "name": "stay_on_one_leg",
+            "action": [
+              0.9578559398651123,
+              -1.0,
+              0.09896977245807648,
+              0.32197946310043335
+            ],
+            "score": 9.842715474250229,
+            "predicted_progress": 0.41846208195480955,
+            "fall_risk": 0.09017990308950519,
+            "contact_consistency": 0.95,
+            "energy_cost": 0.507738471031189,
+            "phase_match": 1.0,
+            "reasons": [
+              "predicted_progress=+0.42",
+              "fall_risk=0.09",
+              "contact_consistency=0.95",
+              "energy_cost=0.51",
+              "phase_match=1.00"
+            ]
+          },
+          "top_candidates": [
+            {
+              "name": "stay_on_one_leg",
+              "action": [
+                0.9578559398651123,
+                -1.0,
+                0.09896977245807648,
+                0.32197946310043335
+              ],
+              "score": 9.842715474250229,
+              "predicted_progress": 0.41846208195480955,
+              "fall_risk": 0.09017990308950519,
+              "contact_consistency": 0.95,
+              "energy_cost": 0.507738471031189,
+              "phase_match": 1.0,
+              "reasons": [
+                "predicted_progress=+0.42",
+                "fall_risk=0.09",
+                "contact_consistency=0.95",
+                "energy_cost=0.51",
+                "phase_match=1.00"
+              ]
+            },
+            {
+              "name": "push_off",
+              "action": [
+                0.9578559398651123,
+                -1.0,
+                0.09896977245807648,
+                0.32197946310043335
+              ],
+              "score": 4.690946894767197,
+              "predicted_progress": 0.4018505154112304,
+              "fall_risk": 0.09017990308950519,
+              "contact_consistency": 0.9,
+              "energy_cost": 0.507738471031189,
+              "phase_match": 0.42,
+              "reasons": [
+                "predicted_progress=+0.40",
+                "fall_risk=0.09",
+                "contact_consistency=0.90",
+                "energy_cost=0.51",
+                "phase_match=0.42"
+              ]
+            },
+            {
+              "name": "conservative_step",
+              "action": [
+                0.4310351610183716,
+                0.44999998807907104,
+                0.044536396861076355,
+                0.44999998807907104
+              ],
+              "score": 3.6700902883097113,
+              "predicted_progress": 0.24453621979059273,
+              "fall_risk": 0.09017990308950519,
+              "contact_consistency": 0.85,
+              "energy_cost": 0.14819368720054626,
+              "phase_match": 0.55,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.09",
+                "contact_consistency=0.85",
+                "energy_cost=0.15",
+                "phase_match=0.55"
+              ]
+            },
+            {
+              "name": "put_other_down",
+              "action": [
+                0.9578559398651123,
+                -1.0,
+                0.09896977245807648,
+                0.32197946310043335
+              ],
+              "score": 2.8543354178690037,
+              "predicted_progress": 0.30218111614975585,
+              "fall_risk": 0.09017990308950519,
+              "contact_consistency": 0.75,
+              "energy_cost": 0.507738471031189,
+              "phase_match": 0.1,
+              "reasons": [
+                "predicted_progress=+0.30",
+                "fall_risk=0.09",
+                "contact_consistency=0.75",
+                "energy_cost=0.51",
+                "phase_match=0.10"
+              ]
+            },
+            {
+              "name": "recover_back",
+              "action": [
+                -0.8303844332695007,
+                0.75,
+                -0.8303844332695007,
+                0.75
+              ],
+              "score": 2.624160748937511,
+              "predicted_progress": 0.24392147944119896,
+              "fall_risk": 0.09017990308950519,
+              "contact_consistency": 0.7,
+              "energy_cost": 0.6260191202163696,
+              "phase_match": 0.5,
+              "reasons": [
+                "predicted_progress=+0.24",
+                "fall_risk=0.09",
+                "contact_consistency=0.70",
+                "energy_cost=0.63",
+                "phase_match=0.50"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "This is not the old failed gait scorer. It records a successful causal_tree teacher on the real BipedalWalker-v3 environment."
+}

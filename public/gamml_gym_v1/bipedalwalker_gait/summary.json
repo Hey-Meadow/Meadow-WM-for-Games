@@ -1,0 +1,68 @@
+{
+  "env_id": "BipedalWalker-v3",
+  "claim_label": "causal_tree_teacher_v2_gait_phase",
+  "episodes": 2,
+  "mean_return": -23.083662705495954,
+  "mean_steps": 420.0,
+  "mean_planning_ms": 0.23281519270745948,
+  "candidate_count": 7,
+  "macro_horizon": 64,
+  "snapshot_rollout_used": false,
+  "fallback_reason": "Box2D deepcopy step AssertionError",
+  "episode_results": [
+    {
+      "env_id": "BipedalWalker-v3",
+      "episode_index": 0,
+      "seed": 20260428,
+      "return": -23.24275226611644,
+      "steps": 420,
+      "mean_planning_ms": 0.2288932701395381,
+      "candidate_count": 7,
+      "macro_horizon": 64,
+      "selected_macro_counts": {
+        "push_off": 187,
+        "right_stance_left_swing": 187,
+        "recover_airborne": 42,
+        "left_stance_right_swing": 4
+      },
+      "brace_both_knees_count": 0,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_gait/videos/bipedalwalker_gait_seed20260428.mp4"
+    },
+    {
+      "env_id": "BipedalWalker-v3",
+      "episode_index": 1,
+      "seed": 20260429,
+      "return": -22.924573144875467,
+      "steps": 420,
+      "mean_planning_ms": 0.23673711527538085,
+      "candidate_count": 7,
+      "macro_horizon": 64,
+      "selected_macro_counts": {
+        "push_off": 165,
+        "right_stance_left_swing": 193,
+        "recover_airborne": 49,
+        "left_stance_right_swing": 13
+      },
+      "brace_both_knees_count": 0,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_gait/videos/bipedalwalker_gait_seed20260429.mp4"
+    }
+  ],
+  "started_at": "2026-04-28T13:13:02+0800",
+  "smoke": {
+    "env_id": "BipedalWalker-v3",
+    "obs_shape": [
+      24
+    ],
+    "action_shape": [
+      4
+    ],
+    "frame_shape": [
+      400,
+      600,
+      3
+    ],
+    "step_tuple_len": 5
+  },
+  "artifacts_dir": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/bipedalwalker_gait",
+  "note": "Gait-phase causal macro scorer; not a solved-policy claim."
+}

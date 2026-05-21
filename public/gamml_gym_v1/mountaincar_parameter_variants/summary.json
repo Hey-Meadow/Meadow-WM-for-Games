@@ -1,0 +1,178 @@
+{
+  "suite": "GamML Gym v1 MountainCar event-based energy causal tree",
+  "env_id": "MountainCar-v0",
+  "claim_label": "causal_tree_teacher_v2_energy_phase",
+  "physics_backend": "Gymnasium env snapshot/restore rollout",
+  "variant_suite": true,
+  "variant_names": [
+    "base",
+    "far_goal",
+    "weak_motor",
+    "high_gravity",
+    "weak_motor_high_gravity"
+  ],
+  "parameter_variants": {
+    "base": {
+      "description": "default MountainCar-v0 physics",
+      "params": {}
+    },
+    "far_goal": {
+      "description": "goal moved farther right",
+      "params": {
+        "goal_position": 0.55
+      }
+    },
+    "weak_motor": {
+      "description": "weaker engine force",
+      "params": {
+        "force": 0.00082
+      }
+    },
+    "high_gravity": {
+      "description": "stronger gravity makes hill climbing harder",
+      "params": {
+        "gravity": 0.0029
+      }
+    },
+    "weak_motor_high_gravity": {
+      "description": "weaker engine and stronger gravity",
+      "params": {
+        "force": 0.00088,
+        "gravity": 0.0028
+      }
+    }
+  },
+  "episodes": [
+    {
+      "seed": 31,
+      "variant": {
+        "name": "base",
+        "description": "default MountainCar-v0 physics",
+        "params": {},
+        "effective": {
+          "goal_position": 0.5,
+          "force": 0.001,
+          "gravity": 0.0025
+        }
+      },
+      "return": -87.0,
+      "steps": 87,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "meadow/gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_base_seed31.mp4",
+      "mean_planning_ms": 122.27223174052378,
+      "plans_json": "meadow/gamml_gym_v1/mountaincar_parameter_variants/mountaincar_energy_base_seed31_plans.json"
+    },
+    {
+      "seed": 31,
+      "variant": {
+        "name": "far_goal",
+        "description": "goal moved farther right",
+        "params": {
+          "goal_position": 0.55
+        },
+        "effective": {
+          "goal_position": 0.55,
+          "force": 0.001,
+          "gravity": 0.0025
+        }
+      },
+      "return": -89.0,
+      "steps": 89,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "meadow/gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_far_goal_seed31.mp4",
+      "mean_planning_ms": 120.96416475277478,
+      "plans_json": "meadow/gamml_gym_v1/mountaincar_parameter_variants/mountaincar_energy_far_goal_seed31_plans.json"
+    },
+    {
+      "seed": 31,
+      "variant": {
+        "name": "weak_motor",
+        "description": "weaker engine force",
+        "params": {
+          "force": 0.00082
+        },
+        "effective": {
+          "goal_position": 0.5,
+          "force": 0.00082,
+          "gravity": 0.0025
+        }
+      },
+      "return": -160.0,
+      "steps": 160,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "meadow/gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_weak_motor_seed31.mp4",
+      "mean_planning_ms": 161.71054190926952,
+      "plans_json": "meadow/gamml_gym_v1/mountaincar_parameter_variants/mountaincar_energy_weak_motor_seed31_plans.json"
+    },
+    {
+      "seed": 31,
+      "variant": {
+        "name": "high_gravity",
+        "description": "stronger gravity makes hill climbing harder",
+        "params": {
+          "gravity": 0.0029
+        },
+        "effective": {
+          "goal_position": 0.5,
+          "force": 0.001,
+          "gravity": 0.0029
+        }
+      },
+      "return": -154.0,
+      "steps": 154,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "meadow/gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_high_gravity_seed31.mp4",
+      "mean_planning_ms": 156.80852434492078,
+      "plans_json": "meadow/gamml_gym_v1/mountaincar_parameter_variants/mountaincar_energy_high_gravity_seed31_plans.json"
+    },
+    {
+      "seed": 31,
+      "variant": {
+        "name": "weak_motor_high_gravity",
+        "description": "weaker engine and stronger gravity",
+        "params": {
+          "force": 0.00088,
+          "gravity": 0.0028
+        },
+        "effective": {
+          "goal_position": 0.5,
+          "force": 0.00088,
+          "gravity": 0.0028
+        }
+      },
+      "return": -149.0,
+      "steps": 149,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "mp4": "meadow/gamml_gym_v1/mountaincar_parameter_variants/videos/mountaincar_energy_weak_motor_high_gravity_seed31.mp4",
+      "mean_planning_ms": 155.65319384616993,
+      "plans_json": "meadow/gamml_gym_v1/mountaincar_parameter_variants/mountaincar_energy_weak_motor_high_gravity_seed31_plans.json"
+    }
+  ],
+  "success_count": 5,
+  "mean_return": -127.8,
+  "mean_steps": 127.8,
+  "mean_planning_ms": 143.48173131873176,
+  "candidate_count": 340,
+  "horizon": {
+    "macro_depth": 4,
+    "max_macro_steps": 100,
+    "max_episode_steps": 260
+  },
+  "macro_depth": 4,
+  "macro_set": [
+    "push_left_until_turn",
+    "push_right_until_turn",
+    "energy_pump_cycle",
+    "commit_right_when_energy_enough"
+  ]
+}

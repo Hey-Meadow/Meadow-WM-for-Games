@@ -1,0 +1,199 @@
+{
+  "suite": "GamML Gym v1 MountainCar custom terrain variants",
+  "env_id": "MeadowMountainCarTerrain-v0",
+  "claim_label": "causal_tree_teacher_custom_terrain_energy_phase",
+  "started_at": "2026-04-28T18:12:31+0800",
+  "physics_backend": "custom terrain height + grade dynamics",
+  "terrains": [
+    {
+      "name": "classic",
+      "description": "reference sinusoidal hill",
+      "x_min": -1.2,
+      "x_max": 0.62,
+      "start_position": -0.42,
+      "goal_position": 0.5,
+      "force": 0.001,
+      "gravity": 0.0025,
+      "max_speed": 0.07
+    },
+    {
+      "name": "double_valley",
+      "description": "two valleys before the goal",
+      "x_min": -1.25,
+      "x_max": 0.72,
+      "start_position": -0.55,
+      "goal_position": 0.58,
+      "force": 0.00115,
+      "gravity": 0.0024,
+      "max_speed": 0.078
+    },
+    {
+      "name": "steep_right",
+      "description": "steeper final climb",
+      "x_min": -1.25,
+      "x_max": 0.72,
+      "start_position": -0.43,
+      "goal_position": 0.56,
+      "force": 0.0012,
+      "gravity": 0.00235,
+      "max_speed": 0.078
+    },
+    {
+      "name": "wavy_bumps",
+      "description": "small bumps over the main hill",
+      "x_min": -1.22,
+      "x_max": 0.7,
+      "start_position": -0.48,
+      "goal_position": 0.55,
+      "force": 0.00115,
+      "gravity": 0.00235,
+      "max_speed": 0.076
+    },
+    {
+      "name": "long_slope",
+      "description": "longer lower-frequency terrain",
+      "x_min": -1.45,
+      "x_max": 0.86,
+      "start_position": -0.72,
+      "goal_position": 0.6,
+      "force": 0.00125,
+      "gravity": 0.0016,
+      "max_speed": 0.09
+    }
+  ],
+  "episodes": [
+    {
+      "terrain": {
+        "name": "classic",
+        "description": "reference sinusoidal hill",
+        "x_min": -1.2,
+        "x_max": 0.62,
+        "start_position": -0.42,
+        "goal_position": 0.5,
+        "force": 0.001,
+        "gravity": 0.0025,
+        "max_speed": 0.07
+      },
+      "return": -178.0,
+      "steps": 178,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "final_state": [
+        0.5368577983788596,
+        0.04995707454335301
+      ],
+      "mean_planning_ms": 109.28816574081527,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_classic.mp4",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/mountaincar_terrain_classic_plans.json"
+    },
+    {
+      "terrain": {
+        "name": "double_valley",
+        "description": "two valleys before the goal",
+        "x_min": -1.25,
+        "x_max": 0.72,
+        "start_position": -0.55,
+        "goal_position": 0.58,
+        "force": 0.00115,
+        "gravity": 0.0024,
+        "max_speed": 0.078
+      },
+      "return": -81.0,
+      "steps": 81,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "final_state": [
+        0.6051044026507968,
+        0.05086043980360421
+      ],
+      "mean_planning_ms": 81.64368052162047,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_double_valley.mp4",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/mountaincar_terrain_double_valley_plans.json"
+    },
+    {
+      "terrain": {
+        "name": "steep_right",
+        "description": "steeper final climb",
+        "x_min": -1.25,
+        "x_max": 0.72,
+        "start_position": -0.43,
+        "goal_position": 0.56,
+        "force": 0.0012,
+        "gravity": 0.00235,
+        "max_speed": 0.078
+      },
+      "return": -114.0,
+      "steps": 114,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "final_state": [
+        0.6140441264001643,
+        0.06182765789068198
+      ],
+      "mean_planning_ms": 106.0862097993346,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_steep_right.mp4",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/mountaincar_terrain_steep_right_plans.json"
+    },
+    {
+      "terrain": {
+        "name": "wavy_bumps",
+        "description": "small bumps over the main hill",
+        "x_min": -1.22,
+        "x_max": 0.7,
+        "start_position": -0.48,
+        "goal_position": 0.55,
+        "force": 0.00115,
+        "gravity": 0.00235,
+        "max_speed": 0.076
+      },
+      "return": -76.0,
+      "steps": 76,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "final_state": [
+        0.5896626594963612,
+        0.05447681653551262
+      ],
+      "mean_planning_ms": 79.88460033850156,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_wavy_bumps.mp4",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/mountaincar_terrain_wavy_bumps_plans.json"
+    },
+    {
+      "terrain": {
+        "name": "long_slope",
+        "description": "longer lower-frequency terrain",
+        "x_min": -1.45,
+        "x_max": 0.86,
+        "start_position": -0.72,
+        "goal_position": 0.6,
+        "force": 0.00125,
+        "gravity": 0.0016,
+        "max_speed": 0.09
+      },
+      "return": -105.0,
+      "steps": 105,
+      "terminated": true,
+      "truncated": false,
+      "success": true,
+      "final_state": [
+        0.6229685867420046,
+        0.05162482133865554
+      ],
+      "mean_planning_ms": 78.6363357057174,
+      "video": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/videos/mountaincar_terrain_long_slope.mp4",
+      "plans_json": "/Users/akaihuangm1/Desktop/github/GamML_torch/meadow/gamml_gym_v1/mountaincar_terrain_variants/mountaincar_terrain_long_slope_plans.json"
+    }
+  ],
+  "success_count": 5,
+  "mean_return": -110.8,
+  "mean_steps": 110.8,
+  "mean_planning_ms": 91.10779842119786,
+  "candidate_count": 340,
+  "macro_depth": 4,
+  "max_macro_steps": 110,
+  "note": "Custom MountainCar-like terrain variants. These are true terrain-shape changes, not Gym reset seeds."
+}
