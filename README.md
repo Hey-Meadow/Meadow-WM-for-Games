@@ -1,5 +1,7 @@
 # Meadow WM for Games
 
+[Live site](https://meadow-wm-for-games.pages.dev) · [GitHub repository](https://github.com/Hey-Meadow/Meadow-WM-for-Games)
+
 Meadow WM for Games is a static research artifact viewer for the Meadow / GamML OpenAI Gym branch. It shows how the same Meadow loop, `GameSpec -> GoalSpec -> Think causal tree -> evidence artifacts -> Reaction distillation`, can be applied to game-control environments such as CartPole, MountainCar, LunarLander, Pendulum, Acrobot, MiniGrid, BipedalWalker, CarRacing, and Pong.
 
 This repository is intentionally evidence-first. The site does not claim complete OpenAI Gym coverage. It preserves the current v1 causal-tree results, the videos, JSON summaries, plan traces, and selected framework scripts so each claim on the page can be checked against an artifact.
